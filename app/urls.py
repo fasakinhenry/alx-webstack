@@ -1,8 +1,7 @@
 from django.urls import path
 from . import views
 
-urlpatterns = [
-        path('admin/', 
+urlpatterns = [ 
     # URL for registering a client
     path('register/', views.register_client, name='register_client'),
 
@@ -17,4 +16,4 @@ urlpatterns = [
 
     # URL for deleting a client
     path('delete/<int:pk>/', views.client_delete, name='client_delete'),
-]
+             ]
