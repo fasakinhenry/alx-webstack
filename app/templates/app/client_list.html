@@ -1,0 +1,8 @@
+<h1>Service Providers</h1>
+<ul>
+    {% for provider in service_providers %}
+        <li>
+            <a href="{% url 'service_provider_detail' provider.pk %}">{{ provider.full_name }}</a>
+        </li>
+    {% endfor %}
+</ul>

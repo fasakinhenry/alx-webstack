@@ -1,0 +1,5 @@
+<h1>{{ service_provider.full_name }}</h1>
+<p>Email: {{ service_provider.email }}</p>
+<p>Phone: {{ service_provider.phone_number }}</p>
+<a href="{% url 'service_provider_edit' service_provider.pk %}">Edit</a>
+<a href="{% url 'service_provider_delete' service_provider.pk %}">Delete</a>
