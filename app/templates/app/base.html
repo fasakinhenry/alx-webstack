@@ -3,92 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Website{% endblock %}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #f5a623, #f76b1c, #ef477a, #9047ef, #3a9cfe);
-            background-size: 400% 400%;
-            animation: gradientBG 10s ease infinite;
-            color: #fff;
-        }
-
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        header {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 1rem;
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 1rem;
-        }
-
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-        }
-
-        nav a:hover {
-            color: #ffd700;
-        }
-
-        main {
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.4);
-            margin: 2rem;
-            border-radius: 10px;
-        }
-
-        footer {
-            background: rgba(0, 0, 0, 0.6);
-            text-align: center;
-            padding: 1rem;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-
-        footer a {
-            color: #ffd700;
-            text-decoration: none;
-        }
-    </style>
+    <title>Good Morning</title>
 </head>
 <body>
-    <header>
-        Welcome to My Colorful Website!
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </nav>
-    <main>
-        {% block content %}
-        <p>This is the main content area. Child templates will replace this block.</p>
-	<p><!--
-	<form method="post" enctype="multipart/form-data">                                      {% csrf_token %}                          {{ form.as_p }}                           <button type="submit" class="btn btn-primary">Register</button>
-	</p> -->
-        {% endblock %}
-    </main>
-    <footer>
-        © 2024 My Website | <a href="#">Privacy Policy</a>
-    </footer>
+
+    <h1>Good Morning!</h1>
+
 </body>
 </html>

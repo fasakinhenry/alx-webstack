@@ -1,32 +1,24 @@
 from django.urls import path
 from . import views
-#from .views import RegisterClientAPI
+from .views import ClientListView, ClientDetailView, UserCreateView
+from rest_framework.authtoken.views import obtain_auth_token
+
+
 urlpatterns = [
-    #URL for base
-    path('', views.base, name='base'),
+    path('api/users/', UserCreateView.as_view(), name='user-create'),
+    path('api/clients/', ClientListView.as_view(), name='client-list'),
+    
 
-    # URL for registering a client
-    path('register/', views.register_client, name='register_client'),
-
-    # URL for listing client
-    path('list/', views.client_list, name='client_list'),
-
-    # URL for viewing a client details
-    path('detail/<int:pk>/', views.client_detail, name='client_detail'),
-
-    # URL for editing a client
-    path('edit/<int:pk>/', views.client_edit, name='client_edit'),
-
-    # URL for deleting a client
-    path('delete/<int:pk>/', views.client_delete, name='client_delete'),
-    #URL for client login
-    path('login/', views.login_view, name='login'),
-
-    # URL for logout
-    path('logout/', views.logout_view, name='logout'),
+    path('clients/', ClientListView.as_view(), name='client-list'),
+    path('clients/<int:pk>/', ClientDetailView.as_view(), name='client-detail'),
 
 
-    #API
+    path('api-token-auth/', obtain_auth_token),
+    
+    path("", views.base, name='base'),
 
-#    path('api/register-client/', RegisterClientAPI.as_view(), name='register_client_api'),
-            ]
+
+
+    ]
+
+

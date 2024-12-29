@@ -3,31 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Site{% endblock %}</title>
-    <link rel="stylesheet" href="">
-    <script src="" defer></script>
+    <title>Create Client</title>
+    <script>
+        async function submitForm(event) {
+            event.preventDefault();
+
+            const formData = new FormData(document.getElementById("clientForm"));
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // Create the User first
+                const userResponse = await fetch("/api/users/", { // Adjust this endpoint to your `UserCreateView`
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        username: data.username,
+                        password: data.password,
+                        first_name: data.first_name,
+                        last_name: data.last_name,
+                        email: data.email,
+                    }),
+                });
+
+                if (userResponse.ok) {
+                    const user = await userResponse.json();
+
+                    // Now create the Client linked to the User
+                    const clientResponse = await fetch("/api/clients/", { // Adjust this endpoint to your `ClientListView`
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            user: user.id,
+                            date_of_birth: data.date_of_birth,
+                            gender: data.gender,
+                            service_needed: data.service_needed,
+                            location: data.location,
+                            address: data.address,
+                        }),
+                    });
+
+                    if (clientResponse.ok) {
+                        const client = await clientResponse.json();
+                        alert("Client created successfully!");
+                    } else {
+                        const errorData = await clientResponse.json();
+                        alert("Error creating client: " + JSON.stringify(errorData));
+                    }
+                } else {
+                    const errorData = await userResponse.json();
+                    alert("Error creating user: " + JSON.stringify(errorData));
+                }
+            } catch (error) {
+                alert("An error occurred: " + error.message);
+            }
+        }
+    </script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main>
-        {% block content %}
-	<h1>form here</h1>
-	{{form}}
-        {% endblock %}
-    </main>
-    
-    <footer>
-        <p>&copy; 2024 My Site</p>
-    </footer>
+    <h1>Create Client</h1>
+    <form id="clientForm" onsubmit="submitForm(event)">
+        <h2>User Information</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br><br>
+
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required>
+        <br><br>
+
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required>
+        <br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br><br>
+
+        <h2>Client Information</h2>
+        <label for="date_of_birth">Date of Birth:</label>
+        <input type="date" id="date_of_birth" name="date_of_birth">
+        <br><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="">Select</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+        </select>
+        <br><br>
+
+        <label for="service_needed">Service Needed:</label>
+        <input type="text" id="service_needed" name="service_needed">
+        <br><br>
+
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location">
+        <br><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address"></textarea>
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
-	
