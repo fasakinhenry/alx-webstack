@@ -1,14 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Create User Profile</title>
-</head>
-<body>
+{% extends 'app/base.html' %}             {% block content %}
     <h1>Create User Profile</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Submit</button>
     </form>
-</body>
-</html>
+{% endblock %}
+

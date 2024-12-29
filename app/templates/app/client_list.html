@@ -1,8 +1,13 @@
-<h1>Service Providers</h1>
+{% extends 'app/base.html' %}
+{% block content %}
+<h1>Client list</h1>
 <ul>
-    {% for provider in service_providers %}
-        <li>
-            <a href="{% url 'service_provider_detail' provider.pk %}">{{ provider.full_name }}</a>
+    {% for clients  in client %}
+        <li> <!--
+		<a href="{% url 'client_detail' provider.pk %}">{{ clients.full_name }}</a> -->
+	
         </li>
+	<h1> {{clients}} </h1>
     {% endfor %}
 </ul>
+{% endblock %}  

@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth.forms import AuthenticationForm
 
 class ClientForm(forms.Form):
     user_name = forms.CharField(
@@ -11,7 +12,7 @@ class ClientForm(forms.Form):
     first_name = forms.CharField(
             max_length = 100,
             widget = forms.TextInput(attrs={'placeholder': 'Full Name'}),
-            label = "Full name"
+            label = "First name"
             )
     second_name = forms.CharField(
             max_length = 100,
@@ -53,4 +54,9 @@ class ClientForm(forms.Form):
             raise forms.ValidationError("password must be at least 8 character long.")
         return make_password(password)
 
+# Client login form
+
+class CustomLoginForm(AuthenticationForm):
+    username = forms.CharField(max_length=150, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 

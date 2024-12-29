@@ -1,7 +1,10 @@
 from django.urls import path
 from . import views
+#from .views import RegisterClientAPI
+urlpatterns = [
+    #URL for base
+    path('', views.base, name='base'),
 
-urlpatterns = [ 
     # URL for registering a client
     path('register/', views.register_client, name='register_client'),
 
@@ -16,4 +19,14 @@ urlpatterns = [
 
     # URL for deleting a client
     path('delete/<int:pk>/', views.client_delete, name='client_delete'),
-             ]
+    #URL for client login
+    path('login/', views.login_view, name='login'),
+
+    # URL for logout
+    path('logout/', views.logout_view, name='logout'),
+
+
+    #API
+
+#    path('api/register-client/', RegisterClientAPI.as_view(), name='register_client_api'),
+            ]
