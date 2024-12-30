@@ -1,8 +1,8 @@
 #my file to be ignore
-app/form.py
+app/forms.py
 app/myviews.py
 app/urls.py
-apop/templates/app/*
+app/templates/app/*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
