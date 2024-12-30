@@ -52,19 +52,3 @@ class ClientDetailView(APIView):
 
         serializer = ClientSerializer(client)
         return Response(serializer.data)
-
-
-class ClientListView(APIView):
-    def post(self, request, format=None):
-        user_id = request.data.get("user")
-        try:
-            user = User.objects.get(id=user_id)
-        except User.DoesNotExist:
-            return Response({"error": "User not found"}, status=status.HTTP_400_BAD_REQUEST)
-
-        serializer = ClientSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(user=user)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
