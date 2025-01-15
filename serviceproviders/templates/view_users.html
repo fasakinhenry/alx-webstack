@@ -1,51 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link href="{% static 'css/tailwind.css' %}" rel="stylesheet">
-    <title>View Users</title>
-    <style>
-        .user-card {
-            border: 1px solid #ddd;
-            padding: 15px;
-            margin: 10px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-        }
-        .user-card img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            margin-right: 15px;
-        }
-        .user-card .details {
-            display: flex;
-            flex-direction: column;
-        }
-    </style>
-</head>
-<body>
-    <h1>Users</h1>
+{% extends 'base.html' %}
+
+{% block title %}View Users{% endblock %}
+
+{% block content %}
+<h1>Users</h1>
+<ul>
     {% for profile in profiles %}
-    <div class="user-card">
-        {% if profile.profile_picture %}
-            <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user.get_full_name }}">
-        {% else %}
-            <img src="path/to/default-image.jpg" alt="Default profile picture">  <!-- Add a fallback image path -->
-        {% endif %}
-        <div class="details">
-            <p><strong>Name:</strong> {{ profile.user.first_name }} {{ profile.user.last_name }}</p>
-            <p><strong>Username:</strong> {{ profile.user.username }}</p>
-            <p><strong>Phone Number:</strong> {{ profile.phone_number }}</p>
-            <p><strong>Skills:</strong> {{ profile.skills }}</p>
-            <p><strong>Bio:</strong> {{ profile.bio }}</p>
-        </div>
-    </div>
-    {% empty %}
-    <p>No users found.</p>
+        <li>
+            <strong>Username:</strong> {{ profile.user.username }}<br>
+            <strong>Bio:</strong> {{ profile.bio }}<br>
+            <strong>Phone Number:</strong> {{ profile.phone_number }}<br>
+            <strong>Skills:</strong> {{ profile.skills }}<br>
+            {% if profile.profile_picture %}
+                <strong>Profile Picture:</strong><br>
+                <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }}'s profile picture" width="100"><br>
+            {% endif %}
+        </li>
     {% endfor %}
-</body>
-</html>
+</ul>
+{% endblock %}

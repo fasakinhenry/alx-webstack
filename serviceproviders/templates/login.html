@@ -3,7 +3,7 @@
 {% block title %}login{% endblock %}
 
 {% block content %}
-<form method="post" action="/app/login/">
+<form method="post" action="/serviceproviders/login/">
     {% csrf_token %}
     <label for="id_username">Username:</label>
     <input type="text" name="username" id="id_username" required>
