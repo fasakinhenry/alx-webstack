@@ -1,21 +1,30 @@
+<!-- filepath: /home/tobijah/alx/alx-webstack/serviceproviders/templates/view_users.html -->
 {% extends 'base.html' %}
 
 {% block title %}View Users{% endblock %}
 
 {% block content %}
-<h1>Users</h1>
-<ul>
-    {% for profile in profiles %}
-        <li>
-            <strong>Username:</strong> {{ profile.user.username }}<br>
-            <strong>Bio:</strong> {{ profile.bio }}<br>
-            <strong>Phone Number:</strong> {{ profile.phone_number }}<br>
-            <strong>Skills:</strong> {{ profile.skills }}<br>
-            {% if profile.profile_picture %}
-                <strong>Profile Picture:</strong><br>
-                <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }}'s profile picture" width="100"><br>
-            {% endif %}
-        </li>
-    {% endfor %}
-</ul>
+<h1>Service Providers</h1>
+<ul id="profiles-list"></ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetch('/serviceproviders/api/profiles/')
+            .then(response => response.json())
+            .then(data => {
+                const profilesList = document.getElementById('profiles-list');
+                data.forEach(profile => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                        <strong>Username:</strong> ${profile.user.username}<br>
+                        <strong>Bio:</strong> ${profile.bio}<br>
+                        <strong>Phone Number:</strong> ${profile.phone_number}<br>
+                        <strong>Skills:</strong> ${profile.skills}<br>
+                        ${profile.profile_picture ? `<strong>Profile Picture:</strong><br><img src="${profile.profile_picture}" alt="${profile.user.username}'s profile picture" width="100"><br>` : ''}
+                    `;
+                    profilesList.appendChild(listItem);
+                });
+            });
+    });
+</script>
 {% endblock %}
