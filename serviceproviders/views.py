@@ -132,6 +132,15 @@ def profile_view(request):
         }})
     return render(request, 'profile_view.html', {'profile': profile})
 
+
+# @login_required
+def view_users(request):
+    """Render the view users page."""
+    profiles = Profile.objects.select_related('user').all()
+    return render(request, 'view_users.html', {'profiles': profiles})
+
+
+
 def profiles_api(request):
     """API view to return profiles data as JSON."""
     profiles = Profile.objects.select_related('user').all()
