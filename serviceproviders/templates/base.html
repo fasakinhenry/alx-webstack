@@ -3,34 +3,52 @@
 
 <head>
   <!-- Basic -->
-  <meta charset="utf-8" />
-  <!-- Mobile Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <!-- Site Metas -->
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+<meta charset="utf-8" />
+<!-- Mobile Metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit-no" />
+<!-- Site Metas -->
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="author" content="" />
 
-  <title>{% block title %}jobstraight{% endblock %}</title>
+<title>{% block title %}jobstraight{% endblock %}</title>
 
-  <!-- Load static files -->
-  {% load static %}
+<!-- Load static files -->
+{% load static %}
 
-  <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+<!-- bootstrap core css -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 
-  <!-- fonts style -->
-  <link href="{% static 'css/popper.css' %}" rel="stylesheet">
+<!-- fonts style -->
+<link href="{% static 'css/popper.css' %}" rel="stylesheet">
 
-  <!-- font awesome style -->
-  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
-  <!-- nice select -->
-  <link rel="stylesheet" href="{% static 'css/nice-select.min.css' %}" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+<!-- font awesome style -->
+<link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+<!-- nice select -->
+<link rel="stylesheet" href="{% static 'css/nice-select.min.css' %}" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
 
-  <!-- Custom styles for this template -->
-  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
-  <!-- responsive style -->
-  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+<!-- Custom styles for this template -->
+<link href="{% static 'css/style.css' %}" rel="stylesheet" />
+<!-- responsive style -->
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+<link id="pagestyle" href="{% static 'serviceproviders/assets/css/soft-ui-dashboard.css?v=1.1.0' %}" rel="stylesheet" />
+<link id="pagestyle" href="{% static 'serviceproviders/css/style.scss' %}" rel="stylesheet" />
+<!--/home/tobijah/alx/alx-webstack/serviceproviders/static/serviceproviders/css/style.scss-->
+<link href="{% static 'serviceproviders/assets/css/nucleo-icons.css' %}" rel="stylesheet" />
+<link href="{% static 'serviceproviders/assets/css/nucleo-svg.css' %}" rel="stylesheet" />
+<link href="{% static 'serviceproviders/assets/css/soft-ui-dashboard.css' %}" rel="stylesheet" />
+<link href="{% static 'serviceproviders/assets/css/soft-ui-dashboard.css.map' %}" rel="stylesheet" />
+<link href="{% static 'serviceproviders/assets/css/soft-ui-dashboard.min.css' %}" rel="stylesheet" />
+
+<!-- External Fonts and Icons -->
+<link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet" />
+<link href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-icons.css" rel="stylesheet" />
+<link href="https://demos.creative-tim.com/soft-ui-dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
+
+<script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+<!-- Nepcha Analytics (nepcha.com) -->
+<script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 </head>
 
 <body>
@@ -44,12 +62,28 @@
 
   <!-- jQuery -->
   <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/jquery-3.4.1.min.js' %}"></script>
   <!-- bootstrap js -->
   <script src="{% static 'js/bootstrap.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/bootstrap.js' %}"></script>
   <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
   <!-- custom js -->
   <script src="{% static 'js/custom.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/custom.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/soft-ui-dashboard.min.js?v=1.1.0' %}"></script>
+
+  <script src="{% static 'serviceproviders/assets/js/core/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/core/bootstrap.min.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/core/popper.min.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/plugins/bootstrap-notify.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/plugins/Chart.extension.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/plugins/chartjs.min.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/soft-ui-dashboard.js' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/soft-ui-dashboard.js.map' %}"></script>
+  <script src="{% static 'serviceproviders/assets/js/soft-ui-dashboard.min.js' %}"></script>
 
 </body>
 
