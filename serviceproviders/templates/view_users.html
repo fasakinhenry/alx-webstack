@@ -9,7 +9,7 @@
     <header class="header_section">
         <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="{% url 'home' %}">
             <span>
               Jobstraight
             </span>
@@ -22,19 +22,19 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ml-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html"> About</a>
+                <a class="nav-link" href="{% url 'about' %}"> About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="job.html">Jobs</a>
+                <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="freelancer.html">Freelancers</a>
+                <a class="nav-link" href="{% url 'view_users' %}">Freelancers</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{% url 'login' %}">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <span>
                     Login
@@ -42,15 +42,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{% url 'register' %}">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <span>
-                    Sign Up
+                    Register
                   </span>
                 </a>
               </li>
               <form class="form-inline">
-                <button class="btn   nav_search-btn" type="submit">
+                <button class="btn nav_search-btn" type="submit">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
@@ -86,13 +86,13 @@
                   Freelancer
                 </label>
               </li>
-              <li class=" ">
+              <li class="">
                 <input id="checkbox_qu_02" type="checkbox" class="styled-checkbox">
                 <label for="checkbox_qu_02">
                   Part Time
                 </label>
               </li>
-              <li class=" ">
+              <li class="">
                 <input id="checkbox_qu_03" type="checkbox" class="styled-checkbox">
                 <label for="checkbox_qu_03">
                   Full Time
