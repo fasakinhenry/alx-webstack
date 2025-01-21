@@ -8,6 +8,7 @@ babel==2.16.0
 bcrypt==3.1.7
 beautifulsoup4==4.10.0
 bidict==0.23.1
+black==24.2.0
 blinker==1.8.2
 Brlapi==0.8.3
 cachetools==5.0.0
