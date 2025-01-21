@@ -114,6 +114,7 @@ pillow==11.1.0
 pipenv==2024.4.0
 platformdirs==4.3.6
 pluggy==1.2.0
+pre-commit==3.6.2
 protobuf==3.12.4
 psutil==5.9.0
 ptyprocess==0.7.0
