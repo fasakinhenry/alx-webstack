@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from serviceproviders.models import Profile
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout as auth_logout
 from .forms import UserRegistrationForm, ProfileEditForm
 from rest_framework import generics
 from .serializers import ProfileSerializer
@@ -63,9 +63,10 @@ def login_view(request):
     return render(request, 'login.html')
 
 # User logout view
+@ login_required
 def logout(request):
     """Logout the user and redirect to the home page."""
-    logout(request)
+    auth_logout(request)
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
     #    return JsonResponse({'message': 'Logout successful'})
     return redirect('home')
@@ -117,14 +118,15 @@ def profile_view(request):
         return redirect('edit_profile')
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-#        return JsonResponse({'profile': {
-#           'username': profile.user.username,
-#            'bio': profile.bio,
-#           'phone_number': profile.phone_number,
-#           'skills': profile.skills,
-#           'profile_picture': profile.profile_picture.url if profile.profile_picture else None
-#       }})
-        return render(request, 'profile_view.html', {'profile': profile})
+       return JsonResponse({'profile': {
+          'username': profile.user.username,
+          'bio': profile.bio,
+          'phone_number': profile.phone_number,
+          'skills': profile.skills,
+          'profile_picture': profile.profile_picture.url if profile.profile_picture else None
+         }
+       })
+    return render(request, 'profile_view.html', {'profile': profile})
 
 
 @login_required
@@ -141,6 +143,7 @@ def about(request):
     return render(request, 'about.html')
 
 # Jobs page view
+@ login_required
 def jobs(request):
     """Render the jobs page."""
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
@@ -148,6 +151,7 @@ def jobs(request):
     return render(request, 'jobs.html')
 
 # Tables page view
+@ login_required
 def tables(request):
     """Render the tables page."""
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
@@ -155,17 +159,19 @@ def tables(request):
     return render(request, 'tables.html')
 
 # Freelancer page view
+@ login_required
 def freelancer(request):
     """Render the freelancer page."""
     return render(request, 'freelancer.html')
 
 # Employees page view
+@ login_required
 def employees(request):
     """Render the employees page."""
     return render(request, 'employees.html')
 
 
-
+@ login_required
 def profiles_api(request):
     """API view to return profiles data as JSON."""
     profiles = Profile.objects.select_related('user').all()
