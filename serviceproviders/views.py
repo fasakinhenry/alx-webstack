@@ -28,8 +28,6 @@ def register(request):
 
             # Create a Profile instance for the new user
             profile = Profile.objects.create(user=user)
-            profile.phone_number = form.cleaned_data.get('phone_number')
-            profile.skills = form.cleaned_data.get('skills')
             profile.save()
 
             messages.success(request, f'Account created for {user.username}!')
@@ -51,8 +49,6 @@ def login_view(request):
         password = request.POST.get('password')
         if not username or not password:
             messages.error(request, 'Both username and password are required.')
-            if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-                return JsonResponse({'error': 'Both username and password are required.'})
             return render(request, 'login.html')
 
         user = authenticate(request, username=username, password=password)
@@ -63,13 +59,11 @@ def login_view(request):
             return redirect('dashboard')
         else:
             messages.error(request, 'Invalid username or password.')
-    #        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-    #            return JsonResponse({'error': 'Invalid username or password.'})
 
     return render(request, 'login.html')
 
 # User logout view
-def logout_view(request):
+def logout(request):
     """Logout the user and redirect to the home page."""
     logout(request)
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
@@ -133,7 +127,7 @@ def profile_view(request):
         return render(request, 'profile_view.html', {'profile': profile})
 
 
-# @login_required
+@login_required
 def view_users(request):
     """Render the view users page."""
     profiles = Profile.objects.select_related('user').all()
@@ -152,6 +146,23 @@ def jobs(request):
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
         # return JsonResponse({'message': 'Welcome to the jobs page'})
     return render(request, 'jobs.html')
+
+# Tables page view
+def tables(request):
+    """Render the tables page."""
+    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+    #    return JsonResponse({'message': 'Welcome to the tables page'})
+    return render(request, 'tables.html')
+
+# Freelancer page view
+def freelancer(request):
+    """Render the freelancer page."""
+    return render(request, 'freelancer.html')
+
+# Employees page view
+def employees(request):
+    """Render the employees page."""
+    return render(request, 'employees.html')
 
 
 
