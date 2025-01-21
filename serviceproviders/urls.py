@@ -10,5 +10,8 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
     path('profile/', views.profile_view, name='profile_view'),
+    path('view-users/', views.view_users, name='view_users'),
+    path('about/', views.about, name='about'),
+    path('jobs/', views.jobs, name='jobs'),
     path('api/profiles/', views.profiles_api, name='profiles_api'),  # Use profiles_api view
 ]
