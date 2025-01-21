@@ -1,2 +1,2 @@
-# alx-webstack
-A service provider Full-stack Application with Django 🚀
+# JobStraight
+A web app that connects potential *clients* to professional *service-providers*, real time with Django 🚀
