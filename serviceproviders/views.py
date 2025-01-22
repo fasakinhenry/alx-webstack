@@ -63,7 +63,6 @@ def login_view(request):
     return render(request, 'login.html')
 
 # User logout view
-@ login_required
 def logout(request):
     """Logout the user and redirect to the home page."""
     auth_logout(request)
