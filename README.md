@@ -1,8 +1,6 @@
-# **JobStraight**
+# **JOBSTRAIGHT**
 
 ![alx-jobstraight](https://github.com/user-attachments/assets/20f5adb1-dda3-44ed-9323-265261b08cb8)
-
-JobStraight is a web application that connects clients with service providers, making it easier to find and hire skilled professionals.
 
 ## **Description**
 This web application enables potential clients to connect with professional service providers in various fields. Whether you need a plumber to fix your kitchen sink, a mechanic to service your car, or a dry cleaner to take care of your laundry, our platform makes it easy to find and hire the right professionals—all in one place.
