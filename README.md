@@ -1,9 +1,6 @@
-# JobStraight
-A web app that connects potential *clients* to professional *service-providers*, real time with Django 🚀
-
 # **JobStraight**
 
-Meeting your client and service needs, right when you need them.
+Meeting your *clients* and *service-provider* needs, right when they need them.
 
 ## **Description**
 This web application enables potential clients to connect with professional service providers in various fields. Whether you need a plumber to fix your kitchen sink, a mechanic to service your car, or a dry cleaner to take care of your laundry, our platform makes it easy to find and hire the right professionals—all in one place.
