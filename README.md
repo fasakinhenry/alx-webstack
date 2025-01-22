@@ -14,8 +14,20 @@ Built using Django, the app offers a seamless platform where users can browse se
 - [Contributing](#contributing)
 
 ## Installation
-Install and run jobstraight following the steps below:
+Follow the steps below to install and set up the Jobstraight web app on your local machine.
 
+### Pre-requisites
+Ensure you have the following installed:
+
+- Python (version 3.8 or later)
+
+- Git
+
+- pip (Python package manager)
+
+- virtualenv (for isolated environments)
+
+## Step 1:
 ```bash
     git clone https://github.com/fasakinhenry/alx-webstack.git
 ```
