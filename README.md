@@ -16,8 +16,8 @@ Built using Django, the app offers a seamless platform where users can browse se
 - [Tech-Stack](#tech-stack)
 - [Challenges-Faced](#challenges-faced)
 - [Lessons-Learned](#lessons-learned)
-- [Authors](#authors)
 - [Feedback](#feedback)
+- [Authors](#authors)
 
 ## Installation
 Follow the steps below to install and set up the JobStraight web app on your local machine.
@@ -171,16 +171,13 @@ For major changes, please open an issue first to discuss what you would like to 
 
 - Teamwork and communication are very important when working on a project.
 
-## Authors
-
-[![Obi](https://img.shields.io/badge/obi-009?style=for-the-badge&logo=ko-fi&logoColor=blue)](https://github.com/obithelight)
-
-[![Henry](https://img.shields.io/badge/henry-500?style=for-the-badge&logo=ko-fi&logoColor=red)](https://github.com/fasakinhenry)
-
-[![Tobijah](https://img.shields.io/badge/tobijah-054?style=for-the-badge&logo=ko-fi&logoColor=yellow)](https://github.com/rallmac)
-
-[![Ayo](https://img.shields.io/badge/odunayo-010?style=for-the-badge&logo=ko-fi&logoColor=green)](https://https://github.com/Stringpappy)
-
 ## Feedback
 
 For Feedback or Support, please email us at kennetho.onu@gmail.com.
+
+## Authors
+
+[![Obi](https://img.shields.io/badge/obi-009?style=for-the-badge&logo=ko-fi&logoColor=blue)](https://github.com/obithelight)
+[![Henry](https://img.shields.io/badge/henry-500?style=for-the-badge&logo=ko-fi&logoColor=red)](https://github.com/fasakinhenry)
+[![Tobijah](https://img.shields.io/badge/tobijah-054?style=for-the-badge&logo=ko-fi&logoColor=yellow)](https://github.com/rallmac)
+[![Ayo](https://img.shields.io/badge/odunayo-010?style=for-the-badge&logo=ko-fi&logoColor=green)](https://https://github.com/Stringpappy)
