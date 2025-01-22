@@ -118,3 +118,7 @@ The project will be accessible at ```http://127.0.0.1:8000/```
 - Secure in-app messaging
 
 - Admin panel for management
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](https://github.com/fasakinhenry/alx-webstack/blob/main/LICENSE) file for more details.
