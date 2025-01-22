@@ -13,6 +13,10 @@ Built using Django, the app offers a seamless platform where users can browse se
 - [Features](#features)
 - [License](#license)
 - [Contributing](#contributing)
+- [Tech Stack](#techstack)
+- [Feedback](#feedback)
+- [Lessons-Learned](#lessons-learned)
+- [Authors](#authors)
 
 ## Installation
 Follow the steps below to install and set up the JobStraight web app on your local machine.
