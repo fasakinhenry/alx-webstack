@@ -180,5 +180,3 @@ For Feedback or Support, please email us at kennetho.onu@gmail.com.
 [![Tobijah](https://img.shields.io/badge/tobijah-054?style=for-the-badge&logo=ko-fi&logoColor=yellow)](https://github.com/rallmac)
 [![Ayo](https://img.shields.io/badge/odunayo-010?style=for-the-badge&logo=ko-fi&logoColor=green)](https://https://github.com/Stringpappy)
 
----
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/fasakinhenry/alx-webstack/blob/main/LICENSE)
