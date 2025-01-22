@@ -157,7 +157,7 @@ For major changes, please open an issue first to discuss what you would like to 
 
 For Feedback or Support, please email us at kennetho.onu@gmail.com.
 
-## Challenges Faced
+## Challenges-Faced
 
 - Learning Django: We had to learn django quickly using tutorials and django documentations.
 
@@ -166,3 +166,11 @@ For Feedback or Support, please email us at kennetho.onu@gmail.com.
 - Time management: We struggled to meet deadlines but improved by setting clear goals and working in smaller tasks.
 
 - Team coordination: The team faced challenges working together but used regular meetings to stay aligned.
+
+## Lessons-Learned
+
+- We learned the basics of Django and how to build web applications with it.
+
+- We improved our understanding of how backend and frontend technologies work together.
+
+- Teamwork and communication are very important when working on a project.
