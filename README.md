@@ -1,23 +1,19 @@
-
 # **JobStraight**
-
-Meeting your client and service needs, right when they are needed.
+Jobstraight is a web application that connects clients with service providers, making it easier to find and hire skilled professionals.
 
 ## **Description**
 This web application enables potential clients to connect with professional service providers in various fields. Whether you need a plumber to fix your kitchen sink, a mechanic to service your car, or a dry cleaner to take care of your laundry, our platform makes it easy to find and hire the right professionals—all in one place.
 
 Built using Django, the app offers a seamless platform where users can browse service providers, view their profiles, and request services. Service providers can create profiles, showcase their skills, and accept or decline client requests.
 
-
-
 ## Table of Contents
-- [Installation](#Installation)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Features](#features)
 - [License](#license)
 - [Contributing](#contributing)
-## Installation
 
+## Installation
 Install and run jobstraight following the steps below:
 
 ```bash
