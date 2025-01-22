@@ -92,3 +92,15 @@ The project will be accessible at ```http://127.0.0.1:8000/```
 ```bash
     deactivate
 ```
+
+## Usage
+
+    1. Clients: Register an account and browse service providers.
+
+    2. Service Providers: Create a profile and offer services.
+
+    3. Search: Use filters to find the right provider for your needs.
+
+    4. Book Services: Send requests and manage bookings.
+
+    5. Messaging: Communicate securely within the platform.
