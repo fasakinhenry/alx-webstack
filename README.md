@@ -122,3 +122,19 @@ The project will be accessible at ```http://127.0.0.1:8000/```
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/fasakinhenry/alx-webstack/blob/main/LICENSE) file for more details.
+
+## Contributing
+
+We welcome contributions! Kindly follow these steps to contribute:
+
+    a. Fork the repository.
+
+    b. Create a new feature branch: git checkout -b feature-name.
+
+    c. Commit your changes: git commit -m 'Add new feature'.
+
+    d. Push to your branch: git push origin feature-name.
+
+    e. Submit a pull request.
+
+For major changes, please open an issue first to discuss what you would like to change.
