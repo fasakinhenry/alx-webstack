@@ -1,4 +1,7 @@
 # **JobStraight**
+
+![alx-jobstraight](https://github.com/user-attachments/assets/20f5adb1-dda3-44ed-9323-265261b08cb8)
+
 JobStraight is a web application that connects clients with service providers, making it easier to find and hire skilled professionals.
 
 ## **Description**
