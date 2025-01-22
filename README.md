@@ -127,9 +127,7 @@ The project will be accessible at ```http://127.0.0.1:8000/```
 
 ## License
 
-This project is licensed under the [MIT](https://github.com/fasakinhenry/alx-webstack/blob/main/LICENSE) license.
-
-[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/fasakinhenry/alx-webstack/blob/main/LICENSE)
+This project is licensed under the [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/fasakinhenry/alx-webstack/blob/main/LICENSE)
 
 ## Contributing
 
