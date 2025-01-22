@@ -127,7 +127,7 @@ The project will be accessible at ```http://127.0.0.1:8000/```
 
 ## License
 
-This project is licensed under the [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/fasakinhenry/alx-webstack/blob/main/LICENSE)
+This project is licensed under the [MIT](https://github.com/fasakinhenry/alx-webstack/blob/main/LICENSE) license.
 
 ## Contributing
 
@@ -179,3 +179,6 @@ For Feedback or Support, please email us at kennetho.onu@gmail.com.
 [![Henry](https://img.shields.io/badge/henry-500?style=for-the-badge&logo=ko-fi&logoColor=red)](https://github.com/fasakinhenry)
 [![Tobijah](https://img.shields.io/badge/tobijah-054?style=for-the-badge&logo=ko-fi&logoColor=yellow)](https://github.com/rallmac)
 [![Ayo](https://img.shields.io/badge/odunayo-010?style=for-the-badge&logo=ko-fi&logoColor=green)](https://https://github.com/Stringpappy)
+
+---
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/fasakinhenry/alx-webstack/blob/main/LICENSE)
