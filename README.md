@@ -104,3 +104,17 @@ The project will be accessible at ```http://127.0.0.1:8000/```
     4. Book Services: Send requests and manage bookings.
 
     5. Messaging: Communicate securely within the platform.
+
+## Features
+
+- User authentication and authorization
+
+- Profile management for clients and providers
+
+- Service listing and booking system
+
+- Search and filter functionality
+
+- Secure in-app messaging
+
+- Admin panel for management
