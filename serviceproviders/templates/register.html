@@ -45,11 +45,11 @@
           </li>
         </ul>
         <li class="nav-item d-flex align-items-center">
-          <a class="btn btn-round btn-sm mb-0 btn-outline-white me-2" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
+          <a class="btn btn-round btn-sm mb-0 btn-outline-white me-2" target="_blank" href="{% url 'register' %}">Create Serviceprovider Account</a>
         </li>
         <ul class="navbar-nav d-lg-block d-none">
           <li class="nav-item">
-            <a href="https://www.creative-tim.com/product/soft-ui-dashboard" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light">Free download</a>
+            <a href="{% url 'client_register' %}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light">Create Client Account</a>
           </li>
         </ul>
       </div>
@@ -136,7 +136,7 @@
                   <div class="text-center">
                     <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
                   </div>
-                  <p class="text-sm mt-3 mb-0">Already have an account? <a href="{% url 'client_login' %}" class="text-dark font-weight-bolder">Sign in</a></p>
+                  <p class="text-sm mt-3 mb-0">Already have an account? <a href="{% url 'login' %}" class="text-dark font-weight-bolder">Sign in</a></p>
                 </form>
               </div>
             </div>
@@ -216,7 +216,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/soft-ui-dashboard.min.js?v=1.1.0"></script>
+  <script src="{% static 'serviceproviders/assets/js/soft-ui-dashboard.min.js?v=1.1.0' %}"></script>
 </body>
   
 {% endblock %}
