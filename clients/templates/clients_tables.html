@@ -143,7 +143,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  " href="{% url 'login' %}">
+            <a class="nav-link  " href="{% url 'logout' %}">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>document</title>
@@ -159,11 +159,11 @@
                   </g>
                 </svg>
               </div>
-              <span class="nav-link-text ms-1">Sign In</span>
+              <span class="nav-link-text ms-1">Logout</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  " href="{% url 'logout'}">
+            <a class="nav-link  " href="{% url 'login' %}">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                 <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <title>spaceship</title>
@@ -181,7 +181,7 @@
                   </g>
                 </svg>
               </div>
-              <span class="nav-link-text ms-1">logout</span>
+              <span class="nav-link-text ms-1">Login</span>
             </a>
           </li>
         </ul>
@@ -200,7 +200,7 @@
             </div>
           </div>
         </div>
-        <a class="btn btn-primary mt-3 w-100" href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree">Upgrade to pro</a>
+        <a class="btn btn-primary mt-3 w-100" href="{% url 'dashboard' %}">Switch to serviceproviders profile</a>
       </div>
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -217,7 +217,7 @@
           <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
               <div class="input-group">
-                <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                <!--<span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>-->
                 <input type="text" class="form-control" placeholder="Type here...">
               </div>
             </div>
@@ -226,9 +226,9 @@
                 <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-soft-ui-dashboard">Online Builder</a>
               </li>
               <li class="nav-item d-flex align-items-center">
-                <a href="javascript:;" class="nav-link text-body font-weight-bold px-0">
+                <a href="{% url 'logout' %}" class="nav-link text-body font-weight-bold px-0">
                   <i class="fa fa-user me-sm-1"></i>
-                  <span class="d-sm-inline d-none">Sign In</span>
+                  <span class="d-sm-inline d-none">Logout</span>
                 </a>
               </li>
               <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
@@ -347,7 +347,7 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div>
-                              <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user1">
+                                <img src="{% static 'serviceproviders/assets/img/team-2.jpg' %}" class="avatar avatar-sm me-3" alt="user1">
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                               <h6 class="mb-0 text-sm">John Michael</h6>
@@ -375,7 +375,7 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div>
-                              <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user2">
+                                <img src="{% static 'serviceproviders/assets/img/team-3.jpg' %}" class="avatar avatar-sm me-3" alt="user2">
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                               <h6 class="mb-0 text-sm">Alexa Liras</h6>
@@ -403,7 +403,7 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div>
-                              <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user3">
+                                <img src="{% static 'serviceproviders/assets/img/team-4.jpg' %}" class="avatar avatar-sm me-3" alt="user3">
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                               <h6 class="mb-0 text-sm">Laurent Perrier</h6>
@@ -431,7 +431,7 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div>
-                              <img src="../assets/img/team-3.jpg" class="avatar avatar-sm me-3" alt="user4">
+                                <img src="{% static 'serviceproviders/assets/img/team-3.jpg' %}" class="avatar avatar-sm me-3" alt="user4">
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                               <h6 class="mb-0 text-sm">Michael Levi</h6>
@@ -459,7 +459,7 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div>
-                              <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3" alt="user5">
+                                <img src="{% static 'serviceproviders/assets/img/team-2.jpg' %}" class="avatar avatar-sm me-3" alt="user5">
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                               <h6 class="mb-0 text-sm">Richard Gran</h6>
@@ -487,7 +487,7 @@
                         <td>
                           <div class="d-flex px-2 py-1">
                             <div>
-                              <img src="../assets/img/team-4.jpg" class="avatar avatar-sm me-3" alt="user6">
+                                <img src="{% static 'serviceproviders/assets/img/team-4.jpg' %}" class="avatar avatar-sm me-3" alt="user6">
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                               <h6 class="mb-0 text-sm">Miriam Eric</h6>
@@ -541,7 +541,7 @@
                         <td>
                           <div class="d-flex px-2">
                             <div>
-                              <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
+                                <img src="{% static 'serviceproviders/assets/img/small-logos/logo-spotify.svg' %}" class="avatar avatar-sm rounded-circle me-2" alt="spotify">
                             </div>
                             <div class="my-auto">
                               <h6 class="mb-0 text-sm">Spotify</h6>
@@ -574,7 +574,7 @@
                         <td>
                           <div class="d-flex px-2">
                             <div>
-                              <img src="../assets/img/small-logos/logo-invision.svg" class="avatar avatar-sm rounded-circle me-2" alt="invision">
+                                <img src="{% static 'serviceproviders/assets/img/small-logos/logo-invision.svg' %}" class="avatar avatar-sm rounded-circle me-2" alt="invision">
                             </div>
                             <div class="my-auto">
                               <h6 class="mb-0 text-sm">Invision</h6>
@@ -607,7 +607,7 @@
                         <td>
                           <div class="d-flex px-2">
                             <div>
-                              <img src="../assets/img/small-logos/logo-jira.svg" class="avatar avatar-sm rounded-circle me-2" alt="jira">
+                                <img src="{% static 'serviceproviders/assets/img/small-logos/logo-jira.svg' %}" class="avatar avatar-sm rounded-circle me-2" alt="jira">
                             </div>
                             <div class="my-auto">
                               <h6 class="mb-0 text-sm">Jira</h6>
@@ -640,7 +640,7 @@
                         <td>
                           <div class="d-flex px-2">
                             <div>
-                              <img src="../assets/img/small-logos/logo-slack.svg" class="avatar avatar-sm rounded-circle me-2" alt="slack">
+                                <img src="{% static 'serviceproviders/assets/img/small-logos/logo-slack.svg' %}" class="avatar avatar-sm rounded-circle me-2" alt="slack">
                             </div>
                             <div class="my-auto">
                               <h6 class="mb-0 text-sm">Slack</h6>
@@ -673,7 +673,7 @@
                         <td>
                           <div class="d-flex px-2">
                             <div>
-                              <img src="../assets/img/small-logos/logo-webdev.svg" class="avatar avatar-sm rounded-circle me-2" alt="webdev">
+                                <img src="{% static 'serviceproviders/assets/img/small-logos/logo-webdev.svg' %}" class="avatar avatar-sm rounded-circle me-2" alt="webdev">
                             </div>
                             <div class="my-auto">
                               <h6 class="mb-0 text-sm">Webdev</h6>
@@ -706,7 +706,7 @@
                         <td>
                           <div class="d-flex px-2">
                             <div>
-                              <img src="../assets/img/small-logos/logo-xd.svg" class="avatar avatar-sm rounded-circle me-2" alt="xd">
+                                <img src="{% static 'serviceproviders/assets/img/small-logos/logo-xd.svg' %}" class="avatar avatar-sm rounded-circle me-2" alt="xd">
                             </div>
                             <div class="my-auto">
                               <h6 class="mb-0 text-sm">Adobe XD</h6>
@@ -843,10 +843,10 @@
       </div>
     </div>
     <!--   Core JS Files   -->
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="{% static 'serviceproviders/assets/js/core/popper.min.js' %}"></script>
+    <script src="{% static 'serviceproviders/assets/js/core/bootstrap.min.js' %}"></script>
+    <script src="{% static 'serviceproviders/assets/js/plugins/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static 'serviceproviders/assets/js/plugins/smooth-scrollbar.min.js' %}"></script>
     <script>
       var win = navigator.platform.indexOf('Win') > -1;
       if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -859,7 +859,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/soft-ui-dashboard.min.js?v=1.1.0"></script>
+    <script src="{% static 'serviceproviders/assets/js/soft-ui-dashboard.min.js?v=1.1.0' %}"></script>
   </body>
 
 {% endblock %}

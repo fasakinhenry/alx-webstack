@@ -57,13 +57,16 @@
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="{% url 'freelancer' %}">Freelancers</a>
+                <a class="nav-link" href="{% url 'employees' %}">Clients</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">
@@ -100,11 +103,10 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          LOOKING FOR EXPERTS?
+          YOU HAVE VALUABLE SKILLS? FIND CLIENTS
         </h2>
         <p>
-          Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam nulla mauris
-          iaculis. Erat eget vitae malesuada, tortor tincidunt porta lorem lectus.
+          Find the best clients for your skills and get paid for your work
         </p>
       </div>
       <div class="row">
@@ -206,8 +208,8 @@
         </div>
       </div>
       <div class="btn-box">
-        <a href="{% url 'freelancer' %}">
-          View All Freelancers
+        <a href="#">
+          View More Clients
         </a>
       </div>
     </div>

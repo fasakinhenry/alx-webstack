@@ -57,6 +57,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+              </li>
               <li class="nav-item active">
                 <a class="nav-link" href="{% url 'about' %}"> About</a>
               </li>
@@ -64,7 +67,7 @@
                 <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'freelancer' %}">Freelancers</a>
+                <a class="nav-link" href="{% url 'freelancer' %}">Freelancer</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">
@@ -149,14 +152,14 @@
               </a>
             </li>
             <li>
-              <a href="{% url 'jobs' %}">
+                <a href="{% url 'login' %}">
                 Jobs
-              </a>
+                </a>
             </li>
             <li>
-              <a href="{% url 'freelancer' %}">
+                <a href="{% url 'freelancer' %}" onclick="if (!isLoggedIn()) { event.preventDefault(); window.location.href='{% url 'login' %}'; }">
                 Freelancers
-              </a>
+                </a>
             </li>
           </ul>
         </div>
