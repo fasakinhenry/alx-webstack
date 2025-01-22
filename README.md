@@ -15,6 +15,7 @@ Built using Django, the app offers a seamless platform where users can browse se
 - [Contributing](#contributing)
 - [Tech-Stack](#tech-stack)
 - [Feedback](#feedback)
+- [Challenges-Faced](#challenges-faced)
 - [Lessons-Learned](#lessons-learned)
 - [Authors](#authors)
 
@@ -156,3 +157,12 @@ For major changes, please open an issue first to discuss what you would like to 
 
 For Feedback or Support, please email us at kennetho.onu@gmail.com.
 
+## Challenges Faced
+
+- Learning Django: We had to learn django quickly using tutorials and django documentations.
+
+- Fixing bugs: Being new to Django, the team faced many errors but solved them through research and pain-staking debugging.
+
+- Time management: We struggled to meet deadlines but improved by setting clear goals and working in smaller tasks.
+
+- Team coordination: The team faced challenges working together but used regular meetings to stay aligned.
