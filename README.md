@@ -14,7 +14,7 @@ Built using Django, the app offers a seamless platform where users can browse se
 - [Contributing](#contributing)
 
 ## Installation
-Follow the steps below to install and set up the Jobstraight web app on your local machine.
+Follow the steps below to install and set up the JobStraight web app on your local machine.
 
 ### Pre-requisites
 Ensure you have the following installed:
@@ -27,17 +27,19 @@ Ensure you have the following installed:
 
 - ```virtualenv``` (for isolated environments)
 
-## Step 1:
+### Step 1: Clone the Repository
 ```bash
     git clone https://github.com/fasakinhenry/alx-webstack.git
 ```
+
+Change into the project directory:
 ```
     cd alx-webstack
 ```
 
-**Set up a virtual environment:**
+### Step 2: Create and Activate a Virtual Environment
 It's a good practice to install Django inside a virtual environment to isolate dependencies.
-    
+
 1.  Create a virtual environment
 ```bash
     python3 -m venv myenv
@@ -52,17 +54,41 @@ It's a good practice to install Django inside a virtual environment to isolate d
     myenv\Scripts\activate
 ```
 
-**Install Django with all the dependencies**
+### Step 3: Install Dependencies
 ```bash
     pip install -r requirements.txt
 ```
 
-**Run the Server**
+### Step 4: Set Up Environment Variables
+Create a .env file in the project's root directory and add the required variables:
+```bash
+    SECRET_KEY=your_secret_key
+    DEBUG=True
+    DATABASE_URL=sqlite:///db.sqlite3
+```
+
+### Step 5: Apply Database Migrations
+```bash
+    python3 manage.py migrate
+```
+
+### Step 6: Create a Superuser
+```bash
+    python3 manage.py createsuperuser
+```
+
+### Step 7: Collect Static Files
+```bash
+    python3 manage.py collectstatic --noinput
+```
+
+### Step 8: Run the Development Server
 ```bash
     python3 manage.py runserver
 ```
+The project will be accessible at ```http://127.0.0.1:8000/```
 
-**To deactivate the virtual environment**
+### Step 9: Deactivate Virtual Environment
 ```bash
     deactivate
 ```
