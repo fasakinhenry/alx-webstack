@@ -13,9 +13,9 @@ Built using Django, the app offers a seamless platform where users can browse se
 - [Features](#features)
 - [License](#license)
 - [Contributing](#contributing)
-- [Tech](#techstack)
+- [Tech-Stack](#tech-stack)
 - [Feedback](#feedback)
-- [Lessons Learned](#lessonslearned)
+- [Lessons-Learned](#lessons-learned)
 - [Authors](#authors)
 
 ## Installation
@@ -146,7 +146,7 @@ We welcome contributions! Kindly follow these steps to contribute:
 
 For major changes, please open an issue first to discuss what you would like to change.
 
-## Tech Stack
+## Tech-Stack
 
 **Client:** JavaScript, Bootstrap
 
