@@ -1,5 +1,5 @@
 # **JobStraight**
-Jobstraight is a web application that connects clients with service providers, making it easier to find and hire skilled professionals.
+JobStraight is a web application that connects clients with service providers, making it easier to find and hire skilled professionals.
 
 ## **Description**
 This web application enables potential clients to connect with professional service providers in various fields. Whether you need a plumber to fix your kitchen sink, a mechanic to service your car, or a dry cleaner to take care of your laundry, our platform makes it easy to find and hire the right professionals—all in one place.
@@ -19,13 +19,13 @@ Follow the steps below to install and set up the Jobstraight web app on your loc
 ### Pre-requisites
 Ensure you have the following installed:
 
-- Python (version 3.8 or later)
+- ```Python``` (version 3.8 or later)
 
-- Git
+- ```Git```
 
-- pip (Python package manager)
+- ```pip``` (Python package manager)
 
-- virtualenv (for isolated environments)
+- ```virtualenv``` (for isolated environments)
 
 ## Step 1:
 ```bash
