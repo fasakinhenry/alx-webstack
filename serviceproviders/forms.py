@@ -21,3 +21,10 @@ class ProfileEditForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = ['bio', 'phone_number', 'skills', 'profile_picture']
+
+def __init__(self, *args, **kwargs):
+        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control custom-form-control'
+            field.widget.attrs['placeholder'] = field.label
+            field.widget.attrs['style'] = 'margin-bottom: 1rem; padding: 0.75rem; border-radius: 0.5rem;'

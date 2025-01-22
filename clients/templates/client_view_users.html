@@ -34,12 +34,11 @@
 
 </head>
 
-<body class="sub_page">
-
-  <div class="hero_area">
+<body>
+<div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
-      <div class="container-fluid">
+        <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="{% url 'home' %}">
             <span>
@@ -53,20 +52,17 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ml-auto">
-              <li class="nav-item ">
+              <li class="nav-item active">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
+                <a class="nav-link" href="{% url 'about' %}"> About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'employees' %}">Clients</a>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'view_users' %}">Freelancers</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">
@@ -85,7 +81,7 @@
                 </a>
               </li>
               <form class="form-inline">
-                <button class="btn   nav_search-btn" type="submit">
+                <button class="btn nav_search-btn" type="submit">
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
@@ -95,26 +91,61 @@
       </div>
     </header>
     <!-- end header section -->
-  </div>
-
-  <!-- expert section -->
-
-  <section class="expert_section layout_padding">
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="container ">
+        <div class="row">
+          <div class="col-lg-7 col-md-8 mx-auto">
+            <div class="detail-box">
+              <h1>
+                Looking For <br>
+                SERVICEPROVIDRS?
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="find_container ">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+              </div>
+            </div>
+            <ul class="job_check_list">
+              <li class=" ">
+                <input id="checkbox_qu_01" type="checkbox" class="styled-checkbox">
+                <label for="checkbox_qu_01">
+                  Freelancer
+                </label>
+              </li>
+              <li class="">
+                <input id="checkbox_qu_02" type="checkbox" class="styled-checkbox">
+                <label for="checkbox_qu_02">
+                  Part Time
+                </label>
+              </li>
+              <li class="">
+                <input id="checkbox_qu_03" type="checkbox" class="styled-checkbox">
+                <label for="checkbox_qu_03">
+                  Full Time
+                </label>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+</div>
+<section class="expert_section">
     <div class="container">
       <div class="heading_container heading_center">
-        <h2>
-          LOOKING FOR EXPERTS?
-        </h2>
-        <p>
-          Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam nulla mauris
-          iaculis. Erat eget vitae malesuada, tortor tincidunt porta lorem lectus.
-        </p>
       </div>
       <div class="row">
         <div class="col-md-6 col-lg-4 mx-auto">
           <div class="box">
             <div class="img-box">
-              <img src="{% static 'images/e1.jpg' %}" alt="">
+                {% load static %}
+                <img src="{% static 'images/e1.jpg' %}" alt="E1">
             </div>
             <div class="detail-box">
               <a href="">
@@ -146,7 +177,7 @@
         <div class="col-md-6 col-lg-4 mx-auto">
           <div class="box">
             <div class="img-box">
-                <img src="{% static 'images/e2.jpg' %}" alt="">
+                <img src="{% static 'images/e2.jpg' %}" alt="E2">
             </div>
             <div class="detail-box">
               <a href="">
@@ -178,7 +209,7 @@
         <div class="col-md-6 col-lg-4 mx-auto">
           <div class="box">
             <div class="img-box">
-                <img src="{% static 'images/e3.jpg' %}" alt="">
+                <img src="{% static 'images/e3.jpg' %}" alt="E3">
             </div>
             <div class="detail-box">
               <a href="">
@@ -208,17 +239,9 @@
           </div>
         </div>
       </div>
-      <div class="btn-box">
-        <a href="{% url 'freelancer' %}">
-          View All Freelancers
-        </a>
-      </div>
     </div>
   </section>
-
-  <!-- end expert section -->
-
-  <!-- info section -->
+<br>
   <section class="info_section ">
     <div class="container">
       <div class="row">
@@ -227,23 +250,23 @@
             Menu
           </h4>
           <ul>
-            <li>
-              <a href="{% url 'home' %}">
+            <li class="active">
+              <a href="index.html">
                 Home
               </a>
             </li>
             <li>
-              <a href="{% url 'about' %}">
+              <a href="about.html">
                 About
               </a>
             </li>
             <li>
-              <a href="{% url 'jobs' %}">
+              <a class="" href="job.html">
                 Jobs
               </a>
             </li>
             <li>
-              <a class="active" href="{% url 'freelancer' %}">
+              <a class="" href="freelancer.html">
                 Freelancers
               </a>
             </li>
@@ -305,27 +328,16 @@
   </section>
   <!-- end info_section -->
 
+
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
       <p>
         &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="#">Free Html Templates</a>
+        <a href="https://html.design/">Jobstraight</a>
       </p>
     </div>
   </footer>
-  <!-- footer section -->
-
-  <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
-  <!-- nice select -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
-  <!-- custom js -->
-  <script src="js/custom.js"></script>
-
-
 </body>
 
 </html>

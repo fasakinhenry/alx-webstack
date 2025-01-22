@@ -43,7 +43,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="{% url 'home' %}">
             <span>
-              Jobstraight
+              Hirevac
             </span>
           </a>
 
@@ -57,16 +57,13 @@
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
+                <a class="nav-link" href="{% url 'job' %}">Jobs</a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="{% url 'employees' %}">Clients</a>
+                <a class="nav-link" href="{% url 'freelancer' %}">Freelancers</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">
@@ -146,7 +143,7 @@
         <div class="col-md-6 col-lg-4 mx-auto">
           <div class="box">
             <div class="img-box">
-                <img src="{% static 'images/e2.jpg' %}" alt="">
+              <img src="images/e2.jpg" alt="">
             </div>
             <div class="detail-box">
               <a href="">
@@ -178,7 +175,7 @@
         <div class="col-md-6 col-lg-4 mx-auto">
           <div class="box">
             <div class="img-box">
-                <img src="{% static 'images/e3.jpg' %}" alt="">
+              <img src="images/e3.jpg" alt="">
             </div>
             <div class="detail-box">
               <a href="">
@@ -209,7 +206,7 @@
         </div>
       </div>
       <div class="btn-box">
-        <a href="{% url 'freelancer' %}">
+        <a href="">
           View All Freelancers
         </a>
       </div>
@@ -228,22 +225,22 @@
           </h4>
           <ul>
             <li>
-              <a href="{% url 'home' %}">
+              <a href="index.html">
                 Home
               </a>
             </li>
             <li>
-              <a href="{% url 'about' %}">
+              <a href="about.html">
                 About
               </a>
             </li>
             <li>
-              <a href="{% url 'jobs' %}">
+              <a href="job.html">
                 Jobs
               </a>
             </li>
             <li>
-              <a class="active" href="{% url 'freelancer' %}">
+              <a class="active" href="freelancer.html">
                 Freelancers
               </a>
             </li>
@@ -310,7 +307,7 @@
     <div class="container">
       <p>
         &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="#">Free Html Templates</a>
+        <a href="https://html.design/">Free Html Templates</a>
       </p>
     </div>
   </footer>
