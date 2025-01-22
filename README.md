@@ -151,3 +151,8 @@ For major changes, please open an issue first to discuss what you would like to 
 **Client:** JavaScript, Bootstrap
 
 **Server:** Python, Django
+
+## Feedback
+
+For Feedback or Support, please email us at kennetho.onu@gmail.com.
+
