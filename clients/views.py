@@ -195,3 +195,35 @@ class ProfileDetailAPIView(generics.RetrieveAPIView):
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]
 
+
+#messages/chat
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Message, Profile
+from django.contrib.auth.models import User
+
+@login_required
+def chat_view(request, recipient_id):
+    """View to display chat messages between the logged-in user and another user."""
+    recipient = User.objects.get(id=recipient_id)
+    messages = Message.objects.filter(
+        (models.Q(sender=request.user) & models.Q(recipient=recipient)) |
+        (models.Q(sender=recipient) & models.Q(recipient=request.user))
+    ).order_by('timestamp')
+
+    if request.method == "POST":
+        content = request.POST.get('message')
+        if content:
+            Message.objects.create(sender=request.user, recipient=recipient, content=content)
+            return redirect('chat_view', recipient_id=recipient.id)
+
+    return render(request, 'chat.html', {'messages': messages, 'recipient': recipient})
+
+@login_required
+def users_list(request):
+    """View to list all users to start a chat."""
+    users = User.objects.exclude(id=request.user.id)
+    return render(request, 'users_list.html', {'users': users})
+
+
