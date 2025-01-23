@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <title>All Users</title>
+{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container page-container">
+    <h2 class="text-center">All Users</h2>
+    {% if messages %}
+        <ul class="messages list-unstyled">
+            {% for message in messages %}
+                <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <div class="row">
+        {% for profile in profiles %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    {% if profile.profile_picture %}
+                        <img src="{{ profile.profile_picture.url }}" class="card-img-top" alt="{{ profile.user.username }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ profile.user.username }}</h5>
+                        <p class="card-text">{{ profile.user.email }}</p>
+                        <p class="card-text">Phone: {{ profile.phone_number }}</p>
+                        <p class="card-text">Skills: {{ profile.skills }}</p>
+                        <p class="card-text">Bio: {{ profile.bio }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="go-back-home text-center">
+        <button class="btn btn-primary" onclick="window.location.href='{% url 'home' %}'">Back to Home</button>
+    </div>
+</div>
+{% endblock %}
