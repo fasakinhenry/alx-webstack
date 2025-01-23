@@ -1,30 +1,270 @@
-<!-- filepath: /home/tobijah/alx/alx-webstack/serviceproviders/templates/view_users.html -->
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html>
 
-{% block title %}View Users{% endblock %}
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-{% block content %}
-<h1>Service Providers</h1>
-<ul id="profiles-list"></ul>
+  <title>Jobstraight</title>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        fetch('/serviceproviders/api/profiles/')
-            .then(response => response.json())
-            .then(data => {
-                const profilesList = document.getElementById('profiles-list');
-                data.forEach(profile => {
-                    const listItem = document.createElement('li');
-                    listItem.innerHTML = `
-                        <strong>Username:</strong> ${profile.user.username}<br>
-                        <strong>Bio:</strong> ${profile.bio}<br>
-                        <strong>Phone Number:</strong> ${profile.phone_number}<br>
-                        <strong>Skills:</strong> ${profile.skills}<br>
-                        ${profile.profile_picture ? `<strong>Profile Picture:</strong><br><img src="${profile.profile_picture}" alt="${profile.user.username}'s profile picture" width="100"><br>` : ''}
-                    `;
-                    profilesList.appendChild(listItem);
-                });
-            });
-    });
-</script>
-{% endblock %}
+  <!-- bootstrap core css -->
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+
+  <!-- font awesome style -->
+  <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="{% url 'home' %}">
+            <span>
+              Jobstraight
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item ">
+                <a class="nav-link" href="{% url 'home' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'about' %}">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'freelancer' %}">Freelancers</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'login' %}">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Login
+                  </span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Register
+                  </span>
+                </a>
+              </li>
+              <form class="form-inline">
+                <button class="btn   nav_search-btn" type="submit">
+                  <i class="fa fa-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- expert section -->
+
+  <section class="expert_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          LOOKING FOR CLIENTS?
+        </h2>
+        <p>
+          Discover top-notch freelancers ready to tackle your projects. Whether you need developers, designers, or writers, find the perfect
+          match for your business needs. Our platform connects you with skilled professionals who are eager to help you achieve your goals.
+          From short-term tasks to long-term collaborations, our freelancers are equipped with the expertise and experience to deliver
+          high-quality results. Join our community and start building your dream team today.
+        </p>
+      </div>
+      <div class="row">
+        {% for profile in profiles %}
+        <div class="col-md-6 col-lg-4 mx-auto">
+          <div class="box">
+            <div class="img-box">
+                {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }}">
+                {% endif %}
+            </div>
+            <div class="detail-box">
+              <a href="">
+                {{ profile.user.username }}
+              </a>
+              <h6 class="expert_position">
+                <span>
+                  {{ profile.skills }}
+                </span>
+                <span>
+                  {{ profile.phone_number }}
+                </span>
+              </h6>
+              <span class="expert_rating">
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              </span>
+              <p>
+                {{ profile.bio }}
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="btn-box">
+        <a href="{% url 'client_employees' %}">
+          View All CLients
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- end expert section -->
+
+  <!-- info section -->
+  <section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 info_links">
+          <h4>
+            Menu
+          </h4>
+          <ul>
+            <li>
+              <a href="{% url 'home' %}">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'about' %}">
+                About
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'jobs' %}">
+                Jobs
+              </a>
+            </li>
+            <li>
+              <a class="active" href="{% url 'freelancer' %}">
+                Freelancers
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h4>
+            Jobs
+          </h4>
+          <p>
+            Find the best job opportunities that match your skills and experience.
+            Our platform offers a wide range of job listings from reputable companies
+            looking for talented professionals. Start your job search today and take
+            the next step in your career.
+          </p>
+        </div>
+        <div class="col-md-3">
+          <div class="info_social">
+            <h4>
+              Social Link
+            </h4>
+            <div class="social_container">
+              <div>
+                <a href="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+              </div>
+              <div>
+                <a href="">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="info_form">
+            <h4>
+              Newsletter
+            </h4>
+            <form action="">
+              <input type="text" placeholder="Enter Your Email" />
+              <button type="submit">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="#">Free Html Templates</a>
+      </p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <!-- bootstrap js -->
+  <script src="{% static 'js/bootstrap.js' %}"></script>
+  <!-- nice select -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
+  <!-- custom js -->
+  <script src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

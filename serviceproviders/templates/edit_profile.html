@@ -3,12 +3,19 @@
 {% block title %}Edit Profile{% endblock %}
 
 {% block content %}
-<h1>Edit Profile</h1>
+{% load static %}
+<div style="text-align: center;">
+    <h3>Edit Profile</h3>
+</div>
+<div class="container">
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="form-group">
+    <div class="form-group" style="text-align: center;">
         {{ form.as_p }}
     </div>
-    <button type="submit">Save changes</button>
+    <div style="text-align: center;">
+        <button type="submit">Save changes</button>
+    </div>
 </form>
+</div>
 {% endblock %}

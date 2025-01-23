@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
-from serviceproviders.models import Profile
+from serviceproviders.models import Profile as ServiceProviderProfile
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout as auth_logout
@@ -161,13 +161,21 @@ def tables(request):
 @ login_required
 def freelancer(request):
     """Render the freelancer page."""
-    return render(request, 'freelancer.html')
+    profiles = ServiceProviderProfile.objects.all()
+    return render(request, 'freelancer.html', {'profiles': profiles})
 
 # Employees page view
+# @ login_required
+# def employees(request):
+#    """Render the employees page."""
+#    return render(request, 'employees.html')
+
+# All users page view
 @ login_required
-def employees(request):
-    """Render the employees page."""
-    return render(request, 'employees.html')
+def allusers(request):
+    """Render the all users page."""
+    profiles = Profile.objects.all()
+    return render(request, 'allusers.html', {'profiles': profiles})
 
 
 @ login_required
