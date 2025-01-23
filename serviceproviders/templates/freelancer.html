@@ -14,9 +14,8 @@
 
   <title>Jobstraight</title>
 
-
   <!-- bootstrap core css -->
-   {% load static %}
+  {% load static %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 
   <!-- fonts style -->
@@ -111,21 +110,24 @@
         </p>
       </div>
       <div class="row">
+        {% for profile in profiles %}
         <div class="col-md-6 col-lg-4 mx-auto">
           <div class="box">
             <div class="img-box">
-              <img src="{% static 'images/e1.jpg' %}" alt="">
+                {% if profile.profile_picture %}
+                <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }}">
+                {% endif %}
             </div>
             <div class="detail-box">
               <a href="">
-                Martin Anderson
+                {{ profile.user.username }}
               </a>
               <h6 class="expert_position">
                 <span>
-                  Web Anaylzer
+                  {{ profile.skills }}
                 </span>
                 <span>
-                  41 Jobs Done
+                  {{ profile.phone_number }}
                 </span>
               </h6>
               <span class="expert_rating">
@@ -136,77 +138,12 @@
                 <i class="fa fa-star" aria-hidden="true"></i>
               </span>
               <p>
-                Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam
-                nulla
-                mauris iaculis.
+                {{ profile.bio }}
               </p>
             </div>
           </div>
         </div>
-        <div class="col-md-6 col-lg-4 mx-auto">
-          <div class="box">
-            <div class="img-box">
-                <img src="{% static 'images/e2.jpg' %}" alt="">
-            </div>
-            <div class="detail-box">
-              <a href="">
-                Semanta Klores
-              </a>
-              <h6 class="expert_position">
-                <span>
-                  Graphic Designer
-                </span>
-                <span>
-                  32 Jobs Done
-                </span>
-              </h6>
-              <span class="expert_rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </span>
-              <p>
-                Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam
-                nulla
-                mauris iaculis.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4 mx-auto">
-          <div class="box">
-            <div class="img-box">
-                <img src="{% static 'images/e3.jpg' %}" alt="">
-            </div>
-            <div class="detail-box">
-              <a href="">
-                Ryan Martines
-              </a>
-              <h6 class="expert_position">
-                <span>
-                  SEO Expert
-                </span>
-                <span>
-                  27 Jobs Done
-                </span>
-              </h6>
-              <span class="expert_rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </span>
-              <p>
-                Lorem ipsum dolor sit amet, non odio tincidunt ut ante, lorem a euismod suspendisse vel, sed quam
-                nulla
-                mauris iaculis.
-              </p>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
       <div class="btn-box">
         <a href="{% url 'freelancer' %}">
@@ -215,7 +152,6 @@
       </div>
     </div>
   </section>
-
   <!-- end expert section -->
 
   <!-- info section -->
@@ -317,14 +253,13 @@
   <!-- footer section -->
 
   <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
   <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
+  <script src="{% static 'js/bootstrap.js' %}"></script>
   <!-- nice select -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
   <!-- custom js -->
-  <script src="js/custom.js"></script>
-
+  <script src="{% static 'js/custom.js' %}"></script>
 
 </body>
 

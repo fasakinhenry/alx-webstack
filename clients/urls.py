@@ -10,6 +10,7 @@ urlpatterns = [
     path('logout/', views.client_logout, name='client_logout'),
     path('employees/', views.employees, name='client_employees'),
     path('profile/', views.profile_view, name='client_profile_view'),
+    path('table/', views.tables, name='clients_table'),
     # Add other URL patterns here
 
 

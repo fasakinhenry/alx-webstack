@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User
 from serviceproviders.models import Profile
+from clients.models import Profile as ClientProfile
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -33,13 +34,13 @@ def register(request):
             messages.success(request, f'Account created for {user.username}!')
             if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
                 return JsonResponse({'message': f'Account created for {user.username}!'})
-            return redirect('login')
+            return redirect('client_login')
     else:
         form = UserRegistrationForm()
 
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
     #  return JsonResponse({'form': form.errors})
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'client_register.html', {'form': form})
 
 # User login view
 def login_view(request):
@@ -49,18 +50,18 @@ def login_view(request):
         password = request.POST.get('password')
         if not username or not password:
             messages.error(request, 'Both username and password are required.')
-            return render(request, 'login.html')
+            return render(request, 'client_login.html')
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
                 return JsonResponse({'message': 'Login successful'})
-            return redirect('dashboard')
+            return redirect('client_dashboard')
         else:
             messages.error(request, 'Invalid username or password.')
 
-    return render(request, 'login.html')
+    return render(request, 'client_login.html')
 
 # User logout view
 def client_logout(request):
@@ -76,7 +77,7 @@ def dashboard(request):
     """Render the dashboard page."""
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
     #    return JsonResponse({'message': 'Welcome to the dashboard'})
-    return render(request, 'dashboard.html')
+    return render(request, 'client_dashboard.html')
 
 # Edit profile view
 @login_required
@@ -95,20 +96,20 @@ def edit_profile(request):
             messages.success(request, 'Profile updated successfully.')
             #if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
             #    return JsonResponse({'message': 'Profile updated successfully.'})
-            return redirect('profile_view')
+            return redirect('client_profile_view')
     else:
         form = ProfileEditForm(instance=profile)
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
         return JsonResponse({'form': form.errors})
-    return render(request, 'edit_profile.html', {'form': form})
+    return render(request, 'client_edit_profile.html', {'form': form})
 
 # Employee profile view
 @login_required
 def employees(request):
     """Render the employees page."""
-    profiles = Profile.objects.select_related('user').all()
-    return render(request, 'employees.html', {'profiles': profiles})
+    profiles = ClientProfile.objects.all()
+    return render(request, 'client_employees.html', {'profiles': profiles})
 
 # Profile view
 @login_required
@@ -121,7 +122,7 @@ def profile_view(request):
         messages.warning(request, 'Please complete your profile.')
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
             return JsonResponse({'error': 'Please complete your profile.'})
-        return redirect('edit_profile')
+        return redirect('client_edit_profile')
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
 #        return JsonResponse({'profile': {
@@ -131,21 +132,21 @@ def profile_view(request):
 #           'skills': profile.skills,
 #           'profile_picture': profile.profile_picture.url if profile.profile_picture else None
 #       }})
-        return render(request, 'profile_view.html', {'profile': profile})
+        return render(request, 'client_profile_view.html', {'profile': profile})
 
 
 @login_required
 def view_users(request):
     """Render the view users page."""
     profiles = Profile.objects.select_related('user').all()
-    return render(request, 'view_users.html', {'profiles': profiles})
+    return render(request, 'client_view_users.html', {'profiles': profiles})
 
 # About page view
 def about(request):
     """Render the about page."""
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
 #        return JsonResponse({'message': 'Welcome to the about page'})
-    return render(request, 'about.html')
+    return render(request, 'client_about.html')
 
 # Jobs page view
 def jobs(request):
@@ -159,7 +160,7 @@ def tables(request):
     """Render the tables page."""
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
     #    return JsonResponse({'message': 'Welcome to the tables page'})
-    return render(request, 'tables.html')
+    return render(request, 'clients_tables.html')
 
 # Freelancer page view
 def freelancer(request):
