@@ -5,11 +5,22 @@
 {% block content %}
 <body class="">
   <!-- Navbar -->
+  
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
+    <div class="container">
+	    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{% url 'home' %}">
+        Home
+      </a>
+      <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon mt-2">
+
+	<!---
     <div class="container">
       <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{% url 'home' %}">
         Home
       </a>
+	--->
+
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon mt-2">
           <span class="navbar-toggler-bar bar1"></span>
@@ -31,12 +42,14 @@
               Profile
             </a>
           </li>
+	  <!--
           <li class="nav-item">
-            <a class="nav-link me-2" href="{% url 'client_register' %}">
+            <a class="nav-link me-2" href="{% url 'register' %}">
               <i class="fas fa-user-circle opacity-6  me-1"></i>
               Sign Up
             </a>
-          </li>
+	 </li>
+	  -->
           <li class="nav-item">
             <a class="nav-link me-2" href="{% url 'login' %}">
               <i class="fas fa-key opacity-6  me-1"></i>
@@ -45,11 +58,12 @@
           </li>
         </ul>
         <li class="nav-item d-flex align-items-center">
-          <a class="btn btn-round btn-sm mb-0 btn-outline-white me-2" target="_blank" href="{% url 'register' %}">Create Serviceprovider Account</a>
-        </li>
+  
+	<a class="btn btn-round btn-sm mb-0 btn-outline-white me-2" target="_blank" href="{% url 'register' %}">Service-Provider Account</a>
+	</li>
         <ul class="navbar-nav d-lg-block d-none">
           <li class="nav-item">
-            <a href="{% url 'client_register' %}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light">Create Client Account</a>
+            <a href="{% url 'register' %}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light">Client Account</a>
           </li>
         </ul>
       </div>
@@ -64,8 +78,8 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-5 text-center mx-auto">
-              <h1 class="text-white mb-2 mt-5">Welcome!</h1>
-              <p class="text-lead text-white">Login or create new account</p>
+              <h1 class="text-white mb-2 mt-5">JobStraight</h1>
+              <p class="text-lead text-white">Connecting Customers With Service Providers</p>
             </div>
           </div>
         </div>
@@ -134,9 +148,9 @@
                     </label>
                   </div>
                   <div class="text-center">
-                    <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign up</button>
+                    <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign Up</button>
                   </div>
-                  <p class="text-sm mt-3 mb-0">Already have an account? <a href="{% url 'login' %}" class="text-dark font-weight-bolder">Sign in</a></p>
+                  <p class="text-sm mt-3 mb-0">Already have an account? <a href="{% url 'login' %}" class="text-dark font-weight-bolder">Sign In</a></p>
                 </form>
               </div>
             </div>
@@ -149,25 +163,31 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mb-4 mx-auto text-center">
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Company
             </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               About Us
             </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+	    <!--
+            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Team
             </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+	    -->
+            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Products
             </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+	    <!--
+            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Blog
             </a>
-            <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+	    -->
+            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Pricing
             </a>
           </div>
+
+	  <!--
           <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
             <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
               <span class="text-lg fab fa-dribbble"></span>
@@ -186,12 +206,15 @@
             </a>
           </div>
         </div>
+	  -->
+
         <div class="row">
           <div class="col-8 mx-auto text-center mt-1">
             <p class="mb-0 text-secondary">
               Copyright © <script>
                 document.write(new Date().getFullYear())
-              </script> Jobstraight.
+              </script> JobStraight.
+
             </p>
           </div>
         </div>
