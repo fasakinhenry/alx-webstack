@@ -12,4 +12,9 @@ urlpatterns = [
     path('profile/', views.profile_view, name='client_profile_view'),
     path('table/', views.tables, name='clients_table'),
     # Add other URL patterns here
+
+
+    #chat
+    path('chat/<int:recipient_id>/', views.chat_view, name='chat_view'),
+    path('users/', views.users_list, name='users_list'),
 ]

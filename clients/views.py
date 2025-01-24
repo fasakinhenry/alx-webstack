@@ -141,6 +141,23 @@ def view_users(request):
     profiles = Profile.objects.select_related('user').all()
     return render(request, 'client_view_users.html', {'profiles': profiles})
 
+
+
+"""
+from django.core.paginator import Paginator
+from django.shortcuts import render
+
+def view_users(request):
+    '''Render a list of all user profiles with pagination.'''
+    profiles = Profile.objects.select_related('user').all()
+
+    # Paginate the profiles, showing 10 profiles per page
+    paginator = Paginator(profiles, 10)
+    page_number = request.GET.get('page')  # Get the page number from the request
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'view_users.html', {'page_obj': page_obj})
+"""
 # About page view
 def about(request):
     """Render the about page."""
@@ -195,4 +212,36 @@ class ProfileDetailAPIView(generics.RetrieveAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]
+
+
+#messages/chat
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Message, Profile
+from django.contrib.auth.models import User
+
+@login_required
+def chat_view(request, recipient_id):
+    """View to display chat messages between the logged-in user and another user."""
+    recipient = User.objects.get(id=recipient_id)
+    messages = Message.objects.filter(
+        (models.Q(sender=request.user) & models.Q(recipient=recipient)) |
+        (models.Q(sender=recipient) & models.Q(recipient=request.user))
+    ).order_by('timestamp')
+
+    if request.method == "POST":
+        content = request.POST.get('message')
+        if content:
+            Message.objects.create(sender=request.user, recipient=recipient, content=content)
+            return redirect('chat_view', recipient_id=recipient.id)
+
+    return render(request, 'chat.html', {'messages': messages, 'recipient': recipient})
+
+@login_required
+def users_list(request):
+    """View to list all users to start a chat."""
+    users = User.objects.exclude(id=request.user.id)
+    return render(request, 'users_list.html', {'users': users})
+
 

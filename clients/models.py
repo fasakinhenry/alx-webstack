@@ -16,3 +16,15 @@ class Profile(models.Model):
         """Return a string representation of the model instance.
         """
         return f"{self.user.username}'s profile"
+
+
+
+class Message(models.Model):
+    """A model to store messages between users."""
+    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sent_messages')
+    recipient = models.ForeignKey(User, on_delete=models.CASCADE, related_name='received_messages')
+    content = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.sender.username} to {self.recipient.username} at {self.timestamp}"
