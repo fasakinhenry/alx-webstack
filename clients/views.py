@@ -141,6 +141,23 @@ def view_users(request):
     profiles = Profile.objects.select_related('user').all()
     return render(request, 'client_view_users.html', {'profiles': profiles})
 
+
+
+"""
+from django.core.paginator import Paginator
+from django.shortcuts import render
+
+def view_users(request):
+    '''Render a list of all user profiles with pagination.'''
+    profiles = Profile.objects.select_related('user').all()
+
+    # Paginate the profiles, showing 10 profiles per page
+    paginator = Paginator(profiles, 10)
+    page_number = request.GET.get('page')  # Get the page number from the request
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'view_users.html', {'page_obj': page_obj})
+"""
 # About page view
 def about(request):
     """Render the about page."""
