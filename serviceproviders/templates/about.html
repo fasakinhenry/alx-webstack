@@ -14,8 +14,9 @@
 
   <title>Jobstraight</title>
 
+
   <!-- bootstrap core css -->
-  {% load static %}
+   {% load static %}
   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
 
   <!-- fonts style -->
@@ -45,6 +46,7 @@
               Jobstraight
             </span>
           </a>
+          </a>
 
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class=""> </span>
@@ -52,20 +54,20 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ml-auto">
-              <li class="nav-item ">
+              <li class="nav-item">
                 <a class="nav-link" href="{% url 'home' %}">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'about' %}"> About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="{% url 'freelancer' %}">Freelancers</a>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'client_employees' %}">Clients</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">
@@ -96,65 +98,44 @@
     <!-- end header section -->
   </div>
 
-  <!-- expert section -->
+  <!-- about section -->
 
-  <section class="expert_section layout_padding">
+  <section class="about_section layout_padding">
     <div class="container">
-      <div class="heading_container heading_center">
-        <h2>
-          LOOKING FOR EXPERTS?
-        </h2>
-        <p>
-            Find the best freelancers for your projects.
-            Our platform connects you with skilled
-            professionals in various fields, ensuring
-            you get the expertise you need to succeed.
-        </p>
-      </div>
       <div class="row">
-        {% for profile in profiles %}
-        <div class="col-md-6 col-lg-4 mx-auto">
-          <div class="box">
-            <div class="img-box">
-                {% if profile.profile_picture %}
-                <img src="{{ profile.profile_picture.url }}" alt="{{ profile.user.username }}">
-                {% endif %}
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
             </div>
-            <div class="detail-box">
-              <a href="">
-                {{ profile.user.username }}
-              </a>
-              <h6 class="expert_position">
-                <span>
-                  {{ profile.skills }}
-                </span>
-                <span>
-                  {{ profile.phone_number }}
-                </span>
-              </h6>
-              <span class="expert_rating">
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-                <i class="fa fa-star" aria-hidden="true"></i>
-              </span>
-              <p>
-                {{ profile.bio }}
-              </p>
-            </div>
+            <p>
+                Jobstraight is dedicated to connecting
+                job seekers with their ideal employers.
+                Our platform offers a seamless experience for both
+                candidates and companies, ensuring that the right
+                talent finds the right opportunities. With a focus on
+                user-friendly design and comprehensive job listings,
+                we strive to make the job search process as efficient
+                and effective as possible. Join us and take the next
+                step in your career journey with confidence.
+            </p>
+            <a href="">
+              Read More
+            </a>
           </div>
         </div>
-        {% endfor %}
-      </div>
-      <div class="btn-box">
-        <a href="{% url 'freelancer' %}">
-          View All Freelancers
-        </a>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{% static 'images/about-img.jpg' %}" alt="">
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <!-- end expert section -->
+
+  <!-- end about section -->
 
   <!-- info section -->
   <section class="info_section ">
@@ -170,20 +151,20 @@
                 Home
               </a>
             </li>
-            <li>
+            <li class="active">
               <a href="{% url 'about' %}">
                 About
               </a>
             </li>
             <li>
-              <a href="{% url 'jobs' %}">
+                <a href="{% url 'login' %}">
                 Jobs
-              </a>
+                </a>
             </li>
             <li>
-              <a class="active" href="{% url 'freelancer' %}">
+                <a href="{% url 'freelancer' %}" onclick="if (!isLoggedIn()) { event.preventDefault(); window.location.href='{% url 'login' %}'; }">
                 Freelancers
-              </a>
+                </a>
             </li>
           </ul>
         </div>
@@ -194,9 +175,11 @@
           <p>
             Discover a wide range of job opportunities
             tailored to your skills and preferences.
-            Whether you're looking for full-time, part-time,
-            or freelance work, our platform connects you
-            with employers who value your expertise and experience.
+            Our platform is designed to help you find the
+            perfect match, whether you're looking for full-time
+            positions, part-time work, or freelance gigs.
+            Start your job search with us and take the
+            next step in your career with confidence.
           </p>
         </div>
         <div class="col-md-3">
@@ -206,22 +189,22 @@
             </h4>
             <div class="social_container">
               <div>
-                <a href="">
+                <a href="#">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
               </div>
               <div>
-                <a href="">
+                <a href="#">
                   <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
               </div>
               <div>
-                <a href="">
+                <a href="#">
                   <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
               </div>
               <div>
-                <a href="">
+                <a href="#">
                   <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
               </div>
@@ -233,7 +216,7 @@
             <h4>
               Newsletter
             </h4>
-            <form action="">
+            <form action="#">
               <input type="text" placeholder="Enter Your Email" />
               <button type="submit">
                 Subscribe
@@ -246,12 +229,13 @@
   </section>
   <!-- end info_section -->
 
+
   <!-- footer section -->
   <footer class="footer_section">
     <div class="container">
       <p>
         &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="#">Jobstraight</a>
+        <a href="https://html.design/">Jobstraight</a>
       </p>
     </div>
   </footer>
