@@ -40,7 +40,7 @@
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="{% url 'home' %}">
+          <a class="navbar-brand" href="{% url 'landpage' %}">
             <span>
               JobStraight
             </span>
@@ -52,11 +52,11 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ml-auto">
-              
+             <!-- 
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'about' %}"> About</a>
               </li>
-              
+	     -->
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'login' %}">
                   <i class="fa fa-user" aria-hidden="true"></i>
@@ -270,7 +270,7 @@
 
   <!-- about section -->
 
-  <section class="about_section layout_padding">
+  <section id="about-us" class="about_section layout_padding">
     <div class="container">
       <div class="row">
         <div class="col-md-6">
@@ -559,17 +559,11 @@ Our mission is to simplify the process of finding and hiring trusted professiona
           LOOKING FOR EXPERTS?
         </h2>
         <p>
-<<<<<<< HEAD
-            We connect you with top professionals in various
-            fields to help you achieve your project goals.
-            Our experts are highly skilled and have a proven
-            track record of delivering quality work on time.
-=======
-            Find the best experts in various fields to help you
-            achieve your project goals. Our platform connects you
-            with top professionals who have a proven track record
-            of delivering high-quality work.
->>>>>>> 6903e432a9441af4fae6b25b5c7b0dcecbbfb70f
+	  Our platform connects you with top professionals
+          in various fields, ensuring you get the best
+          talent for your projects. No matter the job, 
+	  JobStraight is here to link you with the right experts, 
+	  making your life easier and your projects successful.
         </p>
       </div>
       <div class="row">
@@ -580,11 +574,11 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             </div>
             <div class="detail-box">
               <a href="">
-                Martin Anderson
+                Emeka Nwabuko
               </a>
               <h6 class="expert_position">
                 <span>
-                  Web Anaylzer
+                  AI Prompt Engineer
                 </span>
                 <span>
                   41 Jobs Done
@@ -598,18 +592,7 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 <i class="fa fa-star" aria-hidden="true"></i>
               </span>
               <p>
-<<<<<<< HEAD
-                Martin is a seasoned web analyst
-                with over 10 years of experience.
-                He has successfully completed numerous
-                projects, helping businesses optimize their
-                online presence and improve user engagement.
-=======
-                Martin is a seasoned web analyst with over 10 years of
-                experience in the industry. He has successfully completed numerous
-                projects, helping businesses optimize their online presence
-                and improve their website performance.
->>>>>>> 6903e432a9441af4fae6b25b5c7b0dcecbbfb70f
+	        Emeka is a seasoned Artificial Intelligent Prompt Engineer with over 5 years of experience in the industry. He has successfully completed 41 projects, helping businesses scale and optimize their operations.
               </p>
             </div>
           </div>
@@ -621,7 +604,7 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             </div>
             <div class="detail-box">
               <a href="">
-                Semanta Klores
+                Funke Adekunle
               </a>
               <h6 class="expert_position">
                 <span>
@@ -639,10 +622,11 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 <i class="fa fa-star" aria-hidden="true"></i>
               </span>
               <p>
-                Semanta is a creative graphic designer with a
-                passion for visual storytelling. She has completed
-                over 30 projects, delivering high-quality
-                designs that captivate and engage audiences.
+                Funke is a talented graphics designer
+                with a keen eye for detail and creativity.
+                She has completed 32 projects, delivering
+                exceptional designs that meet clients'
+                needs and exceed their expectations.
               </p>
             </div>
           </div>
@@ -654,11 +638,11 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             </div>
             <div class="detail-box">
               <a href="">
-                Ryan Martines
+                Kofi Asamoah
               </a>
               <h6 class="expert_position">
                 <span>
-                  SEO Expert
+                  Business Developer
                 </span>
                 <span>
                   27 Jobs Done
@@ -672,12 +656,10 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 <i class="fa fa-star" aria-hidden="true"></i>
               </span>
               <p>
-                Ryan is an SEO expert with a deep
-                understanding of search engine algorithms
-                and digital marketing strategies.
-                He has successfully completed numerous
-                projects, helping businesses improve their
-                online visibility and drive organic traffic.
+                Kofi is a business developer with a proven track record
+                of nurturing and scaling small businesses. He has successfully completed 27 projects,
+                helping businesses enhance visibility
+                and achieve their marketing goals.
               </p>
             </div>
           </div>
@@ -703,12 +685,12 @@ Our mission is to simplify the process of finding and hiring trusted professiona
           </h4>
           <ul>
             <li class="active">
-              <a href="{% url 'home' %}">
+              <a href="{% url 'landpage' %}">
                 Home
               </a>
             </li>
             <li>
-              <a href="{% url 'about' %}">
+              <a href="#about-us">
                 About
               </a>
             </li>
@@ -717,11 +699,13 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 Jobs
               </a>
             </li>
-            <li>
+            <!--
+	    <li>
               <a class="" href="{% url 'view_users' %}">
                 View Users
               </a>
             </li>
+	    -->
           </ul>
         </div>
         <div class="col-md-3">
@@ -729,10 +713,10 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             Jobs
           </h4>
           <p>
-            Discover a wide range of job opportunities that
+            Discover a wide range of services and job opportunities that
             match your skills and interests. Our platform
-            connects you with top employers looking for
-            talented professionals like you.
+            connects you with qualified service providers looking for
+            clients like you.
           </p>
         </div>
         <div class="col-md-3">
@@ -742,22 +726,22 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             </h4>
             <div class="social_container">
               <div>
-                <a href="">
+                <a target="_blank" href="https://github.com/obithelight">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
               </div>
               <div>
-                <a href="">
+                <a target="_blank" href="https://github.com/fasakinhenry">
                   <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
               </div>
               <div>
-                <a href="">
+                <a target="_blank" href="https://github.com/rallmac">
                   <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
               </div>
               <div>
-                <a href="">
+                <a target="_blank" href="https://github.com/stringpappy">
                   <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
               </div>
@@ -787,8 +771,10 @@ Our mission is to simplify the process of finding and hiring trusted professiona
   <footer class="footer_section">
     <div class="container">
       <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved By
-        <a href="https://html.design/">Jobstraight</a>
+        &copy;
+	<span id="displayYear"></span>
+	<a href="{% url 'landpage' %}">JobStraight.</a>
+	All Rights Reserved.
       </p>
     </div>
   </footer>
