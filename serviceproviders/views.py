@@ -56,7 +56,7 @@ def login_view(request):
             login(request, user)
             if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
                 return JsonResponse({'message': 'Login successful'})
-            return redirect('dashboard')
+            return redirect('home')
         else:
             messages.error(request, 'Invalid username or password.')
 
@@ -68,7 +68,7 @@ def logout(request):
     auth_logout(request)
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
     #    return JsonResponse({'message': 'Logout successful'})
-    return redirect('home')
+    return redirect('landpage')
 
 # Dashboard view
 @login_required
