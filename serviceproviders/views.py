@@ -12,6 +12,7 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Profile
 
 # Home page view
+@login_required
 def home(request):
     """Render the home page."""
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
@@ -142,7 +143,7 @@ def about(request):
     return render(request, 'about.html')
 
 # Jobs page view
-@ login_required
+@login_required
 def jobs(request):
     """Render the jobs page."""
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
@@ -150,7 +151,7 @@ def jobs(request):
     return render(request, 'jobs.html')
 
 # Tables page view
-@ login_required
+@login_required
 def tables(request):
     """Render the tables page."""
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
@@ -158,27 +159,27 @@ def tables(request):
     return render(request, 'tables.html')
 
 # Freelancer page view
-@ login_required
+@login_required
 def freelancer(request):
     """Render the freelancer page."""
     profiles = ServiceProviderProfile.objects.all()
     return render(request, 'freelancer.html', {'profiles': profiles})
 
 # Employees page view
-# @ login_required
+# @login_required
 # def employees(request):
 #    """Render the employees page."""
 #    return render(request, 'employees.html')
 
 # All users page view
-@ login_required
+@login_required
 def allusers(request):
     """Render the all users page."""
     profiles = Profile.objects.all()
     return render(request, 'allusers.html', {'profiles': profiles})
 
 
-@ login_required
+@login_required
 def profiles_api(request):
     """API view to return profiles data as JSON."""
     profiles = Profile.objects.select_related('user').all()
