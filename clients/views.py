@@ -13,6 +13,10 @@ from rest_framework.permissions import IsAuthenticated
 from .models import Profile
 
 # Home page view
+def landpage(request):
+    return render(request, 'landpage.html')
+
+@login_required
 def home(request):
     """Render the home page."""
     # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
@@ -57,7 +61,7 @@ def login_view(request):
             login(request, user)
             if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
                 return JsonResponse({'message': 'Login successful'})
-            return redirect('client_dashboard')
+            return redirect('home')
         else:
             messages.error(request, 'Invalid username or password.')
 

@@ -7,9 +7,9 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <meta name="keywords" content="clients, customers, service providers. " />
-  <meta name="description" content="connecting potential clients to qualified service providers." />
-  <meta name="author" content="Tobijah Ekperipe" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
   <title>jobstraight</title>
 
@@ -42,7 +42,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="{% url 'home' %}">
             <span>
-		    Job<span class="nav-logo">Straight</span>
+              Jobstraight
             </span>
           </a>
 
@@ -52,33 +52,29 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  ml-auto">
-              <li class="nav-item active">
-                {% load static %}
-                <a class="nav-link" href="{% url 'home' %}">Home</a>
-              </li>
+              
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'dashboard' %}">Dashboard</a>
+                <a class="nav-link" href="{% url 'about' %}"> About</a>
               </li>
+              
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'jobs' %}">Jobs</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'view_users' %}">Freelancers</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'logout' %}">
+                <a class="nav-link" href="{% url 'login' %}">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <span>
-                    logout
+                    Login
                   </span>
                 </a>
               </li>
-              
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'register' %}">
+                  <i class="fa fa-user" aria-hidden="true"></i>
+                  <span>
+                    Sign Up
+                  </span>
+                </a>
+              </li>
               <form class="form-inline">
-                <button class="btn nav_search-btn" type="submit">
+                <button class="btn nav_search-btn" type="submit"><>
                   <i class="fa fa-search" aria-hidden="true"></i>
                 </button>
               </form>
@@ -95,11 +91,19 @@
           <div class="col-lg-7 col-md-8 mx-auto">
             <div class="detail-box">
               <h1>
-                From Projects to Repairs<br>
-                We've Got You Covered
+                Build Your <br>
+                POWERFUL CAREER
               </h1>
               <p>
-		Empowering Businesses. Serving Customers.
+<<<<<<< HEAD
+                Our platform is designed to help you find the best job opportunities that match your skills and career goals. 
+                Whether you are looking for a full-time position, part-time work, or freelance projects, we have a wide range 
+                of listings to choose from.
+=======
+                when looking at its layout. The point of using
+                real text is that it provides meaningful content
+                that is relevant to the context of the page.
+>>>>>>> 6903e432a9441af4fae6b25b5c7b0dcecbbfb70f
               </p>
             </div>
           </div>
@@ -116,46 +120,22 @@
                     <div class="form-group col-lg-3">
                       <select name="" class="form-control wide" id="inputDoctorName">
                         <option value="Normal distribution ">All Locations</option>
-			<!-- <option value="Normal distribution ">Aba </option> -->
-                        <option value="Normal distribution ">Abuja </option>
-                        <option value="Normal distribution ">Accra </option>
-			<!--  <option value="Normal distribution ">Awka </option> -->
-                        <option value="Normal distribution ">Calabar </option>
-                        <option value="Normal distribution ">Cape Town </option>
-			<!-- <option value="Normal distribution ">Casablanca </option> -->
-                        <option value="Normal distribution ">Enugu </option>
-			<!-- <option value="Normal distribution ">Freetown </option> -->
-                        <option value="Normal distribution ">Johannesburg </option>
-                        <option value="Normal distribution ">Kampala </option>
-                        <option value="Normal distribution ">Lagos </option>
-                        <option value="Normal distribution ">Lusaka </option>
-                        <option value="Normal distribution ">Monrovia </option>
-                        <option value="Normal distribution ">Nairobi </option>
-                        <option value="Normal distribution ">Onitsha </option>
-                        <option value="Normal distribution ">Port Harcout </option>
-                        <option value="Normal distribution ">Pretoria </option>
+                        <option value="Normal distribution ">Location 2 </option>
+                        <option value="Normal distribution ">Location 3 </option>
                       </select>
                     </div>
                     <div class="form-group col-lg-3">
                       <select name="" class="form-control wide" id="inputDepartmentName">
-                        <option value="Normal distribution ">Find a Service </option>
-                        <option value="Normal distribution ">Catering Services </option>
-                        <option value="Normal distribution ">Plumbing </option>
-                        <option value="Normal distribution ">Dry Cleaning </option>
-                        <option value="Normal distribution ">Market Runs </option>
-                        <option value="Normal distribution ">Events & Wedding Planning </option>
-                        <option value="Normal distribution ">Mechanics </option>
-                        <option value="Normal distribution ">Day Care Services </option>
-                        <option value="Normal distribution ">Education and Training </option>
-                        <option value="Normal distribution ">Drivers and Driving Schools </option>
-                        <option value="Normal distribution ">Industrial Cleaning </option>
-                        <option value="Normal distribution ">Web Design </option>
-                        <option value="Normal distribution ">Computers, Accesories and Repairs </option>
+                        <option value="Normal distribution ">SEO Expert </option>
+                        <option value="Normal distribution ">Web Designer </option>
+                        <option value="Normal distribution ">Web Developer</option>
+                        <option value="Normal distribution ">Graphic Deesigner</option>
+                        <option value="Normal distribution ">Content Writer</option>
                       </select>
                     </div>
                     <div class="form-group col-lg-3">
                       <div class="btn-box">
-                        <button type="submit" class="btn ">Request Now</button>
+                        <button type="submit" class="btn ">Submit Now</button>
                       </div>
                     </div>
                   </div>
@@ -199,7 +179,7 @@
             </div>
             <div class="detail-box">
               <h5>
-                Event Planning
+                Web Design
               </h5>
             </div>
           </a>
@@ -211,7 +191,7 @@
             </div>
             <div class="detail-box">
               <h5>
-                Catering Services
+                Web Development
               </h5>
             </div>
           </a>
@@ -223,7 +203,7 @@
             </div>
             <div class="detail-box">
               <h5>
-                Dry Cleaning
+                Graphic Design
               </h5>
             </div>
           </a>
@@ -235,7 +215,7 @@
             </div>
             <div class="detail-box">
               <h5>
-                Painting Services
+                Seo marketing
               </h5>
             </div>
           </a>
@@ -247,7 +227,7 @@
             </div>
             <div class="detail-box">
               <h5>
-                Market Runs & Errands
+                Accounting
               </h5>
             </div>
           </a>
@@ -259,7 +239,7 @@
             </div>
             <div class="detail-box">
               <h5>
-                Content Creation
+                Content Writing
               </h5>
             </div>
           </a>
@@ -283,9 +263,23 @@
               </h2>
             </div>
             <p>
-                 We connect people with reliable service providers quickly and easily. Whether you need a skilled professional for home services, business support, or personal tasks, JobStraight helps you find the right match in just a few clicks.
-
-Our mission is to simplify the process of finding and hiring trusted professionals by providing a seamless and efficient experience for both clients and service providers.
+<<<<<<< HEAD
+                We are a dedicated team of professionals committed to connecting job seekers with their dream jobs and 
+                employers with the best talent. Our platform offers a seamless experience for both job seekers and 
+                employers, ensuring that the right match is made every time. With a wide range of job listings and 
+                advanced search features, finding the perfect job or candidate has never been easier.
+=======
+              Jobstraight is a leading platform dedicated
+              to connecting job seekers with employers.
+              Our mission is to simplify the job search process
+              and help individuals find the right opportunities
+              that match their skills and career aspirations.
+              We provide a user-friendly interface,
+              advanced search tools, and a wide range of
+              job listings across various industries. Join us
+              today and take the next step in your career
+              journey with Jobstraight.
+>>>>>>> 6903e432a9441af4fae6b25b5c7b0dcecbbfb70f
             </p>
             <a href="">
               Read More
@@ -308,16 +302,15 @@ Our mission is to simplify the process of finding and hiring trusted professiona
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          FEATURED PRODUCTS & SERVICES
+          RECENT & FEATURED JOBS
         </h2>
       </div>
       <div class="job_container">
         <h4 class="job_heading">
-          recent services 
+          Featured Jobs
         </h4>
         <div class="row">
-          
-	 <div class="col-lg-6">
+          <div class="col-lg-6">
             <div class="box">
               <div class="job_content-box">
                 <div class="img-box">
@@ -325,19 +318,19 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Building & Construction
+                    Development Team Lead
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Nairobi
+                        Washington. D.C.
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        Negotiable
+                        $1200 - $1300
                       </span>
                     </h6>
                   </div>
@@ -348,7 +341,7 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
                 <a href="" class="apply-btn">
-                  Request Now
+                  Apply Now
                 </a>
               </div>
             </div>
@@ -361,19 +354,19 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Unlimited Internet Service
+                    Make my website responsive device compatible
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Lagos
+                        New York
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        From N20,000/month
+                        $200 - $340
                       </span>
                     </h6>
                   </div>
@@ -384,15 +377,13 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                   <i class="fa fa-heart-o" aria-hidden="true"></i>
                 </button>
                 <a href="" class="apply-btn">
-                  Request Now
+                  Apply Now
                 </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      
       <div class="job_container">
         <h4 class="job_heading">
           Recent Jobs
@@ -406,19 +397,19 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Day Care Nanny (Female)
+                    Looking Graphic Designer (Logo + UI)
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Abuja
+                        Washington. D.C.
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        N125,000/month
+                        $1200/mo
                       </span>
                     </h6>
                   </div>
@@ -442,19 +433,19 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Python Developer
+                    Are you Typography Expert?
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Cape Town
+                        New York
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        R2000/month
+                        $56 - $90
                       </span>
                     </h6>
                   </div>
@@ -478,19 +469,19 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Executive Virtual Assistant
+                    Looking WordPress Developer for ThemeForest
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Remote
+                        Washington. D.C.
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        $400/month
+                        $400 - $540
                       </span>
                     </h6>
                   </div>
@@ -506,8 +497,7 @@ Our mission is to simplify the process of finding and hiring trusted professiona
               </div>
             </div>
           </div>
-          
-	  <div class="col-lg-6">
+          <div class="col-lg-6">
             <div class="box">
               <div class="job_content-box">
                 <div class="img-box">
@@ -515,19 +505,19 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Front Desk Officer
+                    Hiring Web Designer for Project
                   </h5>
                   <div class="detail-info">
                     <h6>
                       <i class="fa fa-map-marker" aria-hidden="true"></i>
                       <span>
-                        Port Harcourt.
+                        Washington. D.C.
                       </span>
                     </h6>
                     <h6>
                       <i class="fa fa-money" aria-hidden="true"></i>
                       <span>
-                        N120,000/month
+                        $350 - $450
                       </span>
                     </h6>
                   </div>
@@ -541,7 +531,6 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                   Apply Now
                 </a>
               </div>
-
             </div>
           </div>
         </div>
@@ -564,9 +553,17 @@ Our mission is to simplify the process of finding and hiring trusted professiona
           LOOKING FOR EXPERTS?
         </h2>
         <p>
-            Our platform connects you with top professionals
-            in various fields, ensuring you get the best
-            talent for your projects. No matter the job, JobStraight is here to link you with the right experts, making your life easier and your projects successful.
+<<<<<<< HEAD
+            We connect you with top professionals in various
+            fields to help you achieve your project goals.
+            Our experts are highly skilled and have a proven
+            track record of delivering quality work on time.
+=======
+            Find the best experts in various fields to help you
+            achieve your project goals. Our platform connects you
+            with top professionals who have a proven track record
+            of delivering high-quality work.
+>>>>>>> 6903e432a9441af4fae6b25b5c7b0dcecbbfb70f
         </p>
       </div>
       <div class="row">
@@ -577,11 +574,11 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             </div>
             <div class="detail-box">
               <a href="">
-                Emeka Nwabuko
+                Martin Anderson
               </a>
               <h6 class="expert_position">
                 <span>
-                  AI Prompt Engineer
+                  Web Anaylzer
                 </span>
                 <span>
                   41 Jobs Done
@@ -595,7 +592,18 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 <i class="fa fa-star" aria-hidden="true"></i>
               </span>
               <p>
-                Emeka is a seasoned Artificial Intelligent Prompt Engineer with over 5 years of experience in the industry. He has successfully completed 41 projects, helping businesses scale and optimize their operations.
+<<<<<<< HEAD
+                Martin is a seasoned web analyst
+                with over 10 years of experience.
+                He has successfully completed numerous
+                projects, helping businesses optimize their
+                online presence and improve user engagement.
+=======
+                Martin is a seasoned web analyst with over 10 years of
+                experience in the industry. He has successfully completed numerous
+                projects, helping businesses optimize their online presence
+                and improve their website performance.
+>>>>>>> 6903e432a9441af4fae6b25b5c7b0dcecbbfb70f
               </p>
             </div>
           </div>
@@ -607,11 +615,11 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             </div>
             <div class="detail-box">
               <a href="">
-                Funke Adekunle
+                Semanta Klores
               </a>
               <h6 class="expert_position">
                 <span>
-                  Graphics Design
+                  Graphic Designer
                 </span>
                 <span>
                   32 Jobs Done
@@ -625,11 +633,10 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 <i class="fa fa-star" aria-hidden="true"></i>
               </span>
               <p>
-                Funke is a talented graphics designer
-                with a keen eye for detail and creativity.
-                She has completed 32 projects, delivering
-                exceptional designs that meet clients'
-                needs and exceed their expectations.
+                Semanta is a creative graphic designer with a
+                passion for visual storytelling. She has completed
+                over 30 projects, delivering high-quality
+                designs that captivate and engage audiences.
               </p>
             </div>
           </div>
@@ -641,11 +648,11 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             </div>
             <div class="detail-box">
               <a href="">
-                Kofi Asamoah
+                Ryan Martines
               </a>
               <h6 class="expert_position">
                 <span>
-                  Business Developer
+                  SEO Expert
                 </span>
                 <span>
                   27 Jobs Done
@@ -659,10 +666,12 @@ Our mission is to simplify the process of finding and hiring trusted professiona
                 <i class="fa fa-star" aria-hidden="true"></i>
               </span>
               <p>
-                Kofi is a business developer with a proven track record
-                of nurturing and scaling small businesses. He has successfully completed 27 projects,
-                helping businesses enhance visibility
-                and achieve their marketing goals.
+                Ryan is an SEO expert with a deep
+                understanding of search engine algorithms
+                and digital marketing strategies.
+                He has successfully completed numerous
+                projects, helping businesses improve their
+                online visibility and drive organic traffic.
               </p>
             </div>
           </div>
@@ -714,13 +723,10 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             Jobs
           </h4>
           <p>
-            Our platform offers a wide range of job
-            opportunities across various industries,
-            ensuring that you find the perfect match
-            for your skills and career aspirations.
-            Whether you are looking for a full-time position,
-            part-time work, or freelance projects,
-            we have something for everyone.
+            Discover a wide range of job opportunities that
+            match your skills and interests. Our platform
+            connects you with top employers looking for
+            talented professionals like you.
           </p>
         </div>
         <div class="col-md-3">
@@ -730,22 +736,22 @@ Our mission is to simplify the process of finding and hiring trusted professiona
             </h4>
             <div class="social_container">
               <div>
-                <a target=_blank href="https://github.com/obithelight">
+                <a href="">
                   <i class="fa fa-facebook" aria-hidden="true"></i>
                 </a>
               </div>
               <div>
-                <a target=_blank href="https://github.com/fasakinhenry">
+                <a href="">
                   <i class="fa fa-twitter" aria-hidden="true"></i>
                 </a>
               </div>
               <div>
-                <a target=_blank href="https://github.com/rallmac">
+                <a href="">
                   <i class="fa fa-linkedin" aria-hidden="true"></i>
                 </a>
               </div>
               <div>
-                <a target=_blank href="https://github.com/stringpappy">
+                <a href="">
                   <i class="fa fa-instagram" aria-hidden="true"></i>
                 </a>
               </div>
@@ -775,8 +781,8 @@ Our mission is to simplify the process of finding and hiring trusted professiona
   <footer class="footer_section">
     <div class="container">
       <p>
-        &copy; <span id="displayYear"></span> All Rights Reserved.
-        <a href="">JobStraight</a>
+        &copy; <span id="displayYear"></span> All Rights Reserved By
+        <a href="https://html.design/">Jobstraight</a>
       </p>
     </div>
   </footer>
