@@ -8,7 +8,7 @@
   
   <nav class="navbar navbar-expand-lg position-absolute top-0 z-index-3 w-100 shadow-none my-3 navbar-transparent mt-4">
     <div class="container">
-	    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{% url 'home' %}">
+	    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 text-white" href="{% url 'landpage' %}">
         JobStraight
       </a>
       <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,39 +30,41 @@
       </button>
       <div class="collapse navbar-collapse" id="navigation">
         <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
-          <li class="nav-item">
+         <!-- <li class="nav-item">
             <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="{% url 'dashboard' %}">
               <i class="fa fa-chart-pie opacity-6  me-1"></i>
               Dashboard
             </a>
-          </li>
+	 </li> 
           <li class="nav-item">
             <a class="nav-link me-2" href="{% url 'profile_view' %}">
               <i class="fa fa-user opacity-6  me-1"></i>
               Profile
             </a>
           </li>
-	  <!--
+	 
           <li class="nav-item">
             <a class="nav-link me-2" href="{% url 'register' %}">
               <i class="fas fa-user-circle opacity-6  me-1"></i>
               Sign Up
             </a>
 	 </li>
-	  -->
+	
           <li class="nav-item">
             <a class="nav-link me-2" href="{% url 'login' %}">
-              <!--
+             
 		    <i class="fas fa-key opacity-6  me-1"></i>
-	  -->
+	
               Login
             </a>
           </li>
         </ul>
+	 -->
         <li class="nav-item d-flex align-items-center">
   
 	<a class="btn btn-round btn-sm mb-0 btn-outline-white me-2" target="_blank" href="{% url 'register' %}">Service-Provider Account</a>
 	</li>
+
         <ul class="navbar-nav d-lg-block d-none">
           <li class="nav-item">
             <a href="{% url 'register' %}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-light">Client Account</a>
@@ -80,9 +82,9 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-lg-5 text-center mx-auto">
-		    <h2 class="text-white mb-2 mt-5">Connecting Potential Clients </br >
+		    <h3 class="text-white mb-2 mt-5">Connecting Users with </br > Service Providers
 			    <!-- class="text-white mb-2 mt-5">-->
-			    With Service Providers
+			  
 		    </h2>
              <!--
 		    <p class="text-lead text-white">Connecting potential clients with service providers</p>
@@ -151,7 +153,7 @@
                   <div class="form-check form-check-info text-left">
                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
                     <label class="form-check-label" for="flexCheckDefault">
-                      I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                      I agree to the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
                     </label>
                   </div>
                   <div class="text-center">
@@ -170,18 +172,18 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mb-4 mx-auto text-center">
-            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            <a href="{% url 'landpage' %}" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Company
             </a>
-            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            <a href="{% url 'landpage' %}" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               About Us
             </a>
 	    <!--
-            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            <a href="{% url 'landpage' %}" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Team
             </a>
 	    -->
-            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            <a href="{% url 'landpage' %}" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Products
             </a>
 	    <!--
@@ -189,7 +191,7 @@
               Blog
             </a>
 	    -->
-            <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+            <a href="{% url 'landpage' %}" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
               Pricing
             </a>
           </div>
@@ -220,7 +222,7 @@
             <p class="mb-0 text-secondary">
               Copyright © <script>
                 document.write(new Date().getFullYear())
-              </script> JobStraight.
+              </script> JobStraight. All Rights Reserved.
 
             </p>
           </div>
