@@ -11,8 +11,8 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur blur-rounded top-0 z-index-3 shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
           <div class="container-fluid pe-0">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{% url 'home' %}">
-              Home
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="{% url 'landpage' %}">
+              JobStraight
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -22,7 +22,9 @@
               </span>
             </button>
             <div class="collapse navbar-collapse" id="navigation">
-              <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+           
+            <ul class="navbar-nav mx-auto ms-xl-auto me-xl-7">
+		<!--
                 <li class="nav-item">
                   <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="{% url 'dashboard' %}">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
@@ -37,23 +39,25 @@
                 </li>
                 <li class="nav-item">
                   <a class="nav-link me-2" href="{% url 'register' %}">
-                    <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
+			   <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
                     Register
                   </a>
                 </li>
+	
                 <li class="nav-item">
                   <a class="nav-link me-2" href="{% url 'login' %}">
                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
                     Login
                   </a>
                 </li>
-              </ul>
+	    -->
+	      </ul>
               <li class="nav-item d-flex align-items-center">
-                <a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="{% url 'register' %}">Create Serviceprovider Account</a>
+                <a class="btn btn-round btn-sm mb-0 btn-outline-primary me-2" target="_blank" href="{% url 'register' %}">Service-Provider Account</a>
               </li>
               <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                  <a href="{% url 'client_register' %}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Create Client Account</a>
+                  <a href="{% url 'register' %}" class="btn btn-sm btn-round mb-0 me-1 bg-gradient-dark">Client Account</a>
                 </li>
               </ul>
             </div>
@@ -68,7 +72,7 @@
       <div class="page-header min-vh-75">
         <div class="container">
           <div class="row">
-            <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+            <div class="col-xl-4 col-lg-5 d-flex flex-column mx-auto">
               <div class="card card-plain mt-8">
                 <div class="card-header pb-0 text-left bg-transparent">
                   <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
@@ -90,7 +94,7 @@
                       <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
                     <div class="text-center">
-                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign In</button>
                     </div>
                   </form>
                 </div>
@@ -102,10 +106,6 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="oblique position-absolute top-0 h-100 d-md-block d-none me-n8">
-                <div class="oblique-image bg-cover position-absolute fixed-top ms-auto h-100 z-index-0 ms-n6" style="background-image:url('{% static 'serviceproviders/assets/img/curved-images/curved6.jpg' %}')"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -117,25 +117,30 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 mb-4 mx-auto text-center">
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+		<a href="{% url 'landpage' %}" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Company
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+          <a href="{% url 'landpage' %}" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             About Us
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+	  <!--
+          <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Team
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+	  -->
+          <a href="{% url 'landpage' %}" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Products
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+	  <!--
+          <a href="{% url 'home' %}" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Blog
           </a>
-          <a href="javascript:;" target="_blank" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
+	  -->
+	  <a href="{% url 'landpage' %}" class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2">
             Pricing
           </a>
         </div>
+	<!--
         <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
           <a href="javascript:;" target="_blank" class="text-secondary me-xl-4 me-4">
             <span class="text-lg fab fa-dribbble"></span>
@@ -153,13 +158,14 @@
             <span class="text-lg fab fa-github"></span>
           </a>
         </div>
+	-->
       </div>
       <div class="row">
         <div class="col-8 mx-auto text-center mt-1">
           <p class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> Jobstraight.
+            </script> JobStraight. All Rights Reserved.
           </p>
         </div>
       </div>

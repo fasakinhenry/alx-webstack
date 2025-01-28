@@ -20,11 +20,10 @@ class ProfileEditForm(forms.ModelForm):
     """
     class Meta:
         model = Profile
-        fields = ['bio', 'phone_number', 'organisation', 'position', 'profile_picture']
+        fields = ['bio', 'phone_number', 'organisation', 'email', 'address', 'full_name', 'position', 'profile_picture']
 
-
-def __init__(self, *args, **kwargs):
-        super(UserRegistrationForm, self).__init__(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super(ProfileEditForm, self).__init__(*args, **kwargs)
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'form-control custom-form-control'
             field.widget.attrs['placeholder'] = field.label

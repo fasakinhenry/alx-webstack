@@ -20,7 +20,7 @@ class ProfileEditForm(forms.ModelForm):
     """
     class Meta:
         model = Profile
-        fields = ['bio', 'phone_number', 'skills', 'profile_picture']
+        fields = ['bio', 'phone_number', 'email', 'address', 'full_name', 'skills', 'profile_picture']
 
 def __init__(self, *args, **kwargs):
         super(UserRegistrationForm, self).__init__(*args, **kwargs)
