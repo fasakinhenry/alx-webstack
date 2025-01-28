@@ -7,7 +7,7 @@
         <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
           <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href="{% url 'home' %}">
+            <a class="navbar-brand m-0" href="{% url 'home' %}" target="_blank">
               {% load static %}
               <img src="{% static 'serviceproviders/assets/img/logo-ct-dark.png' %}" class="navbar-brand-img h-100" alt="main_logo">
               <span class="ms-1 font-weight-small text-dark" style="font-size: 1rem;">Home</span>
@@ -20,7 +20,7 @@
                 <a class="nav-link  " href="{% url 'dashboard' %}">
                   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                     <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-                      <title>shop </title>
+                      <title>shop</title>
                       <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                         <g transform="translate(-1716.000000, -439.000000)" fill="#FFFFFF" fill-rule="nonzero">
                           <g transform="translate(1716.000000, 291.000000)">
@@ -37,7 +37,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  " href="{% url 'clients_tables' %}">
+                <a class="nav-link  " href="{% url 'tables' %}">
                   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                     <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>office</title>
@@ -77,7 +77,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  " href="{% url 'client_edit_profile' %}">
+                <a class="nav-link  " href="{% url 'edit_profile' %}">
                   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                     <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>box-3d-50</title>
@@ -143,7 +143,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  " href="{% url 'login' %}">
+                <a class="nav-link  " href="#">
                   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                     <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>document</title>
@@ -159,11 +159,11 @@
                       </g>
                     </svg>
                   </div>
-                  <span class="nav-link-text ms-1">login</span>
+                  <span class="nav-link-text ms-1">buy points</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  " href="{% url 'register' %}">
+                <a class="nav-link" href="#">
                   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                     <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>spaceship</title>
@@ -181,7 +181,7 @@
                       </g>
                     </svg>
                   </div>
-                  <span class="nav-link-text ms-1">Sign Up</span>
+                  <span class="nav-link-text ms-1">Advertize</span>
                 </a>
               </li>
             </ul>
@@ -196,11 +196,11 @@
                 <div class="docs-info">
                   <h6 class="text-white up mb-0">Need help?</h6>
                   <p class="text-xs font-weight-bold">Please check our docs</p>
-                  <a href="#" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
+                  <a href="https://www.creative-tim.com/learning-lab/bootstrap/license/soft-ui-dashboard" target="_blank" class="btn btn-white btn-sm w-100 mb-0">Documentation</a>
                 </div>
               </div>
             </div>
-            <a class="btn btn-primary mt-3 w-100" href="{% url 'dashboard' %}">Switch to serviceproviders profile</a>
+            <a class="btn btn-primary mt-3 w-100" href="{% url 'client_dashboard' %}">Switch to serviceprovider profile</a>
           </div>
         </aside>
         <div class="main-content position-relative max-height-vh-100 h-100">
@@ -209,10 +209,9 @@
             <div class="container-fluid py-1">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
-                  <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-                  <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
+                  <li class="breadcrumb-item text-sm text-white active" aria-current="page">This is your Client profile</li>
                 </ol>
-                <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
+                <h6 class="text-white font-weight-bolder ms-2">Welcome {{ user.username }}</h6>
               </nav>
               <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -223,7 +222,7 @@
                 </div>
                 <ul class="navbar-nav justify-content-end">
                   <li class="nav-item d-flex align-items-center">
-                    <a class="btn btn-outline-white btn-sm mb-0 me-3" href="{% url 'dashboard' %}">Switch to a serviceprovider account</a>
+                    <a class="btn btn-outline-white btn-sm mb-0 me-3" target="_blank" href="{% url 'client_dashboard' %}">Switch to a Serviceprovider account</a>
                   </li>
                   <li class="nav-item d-flex align-items-center">
                     <a href="{% url 'logout' %}" class="nav-link text-white font-weight-bold px-0">
@@ -332,14 +331,16 @@
                 <div class="d-flex justify-content-between align-items-end">
                   <div class="d-flex align-items-center">
                     <div class="avatar avatar-xl position-relative me-3">
-                        <img src="{% static 'serviceproviders/assets/img/bruce-mars.jpg' %}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+                        {% if profile.profile_picture %}
+                          <img src="{{ profile.profile_picture.url }}" alt="Profile Picture" class="w-100 border-radius-lg shadow-sm">
+                        {% endif %}
                     </div>
                     <div>
                       <h5 class="mb-1 text-white font-weight-bolder">
-                        Alec Thompson
+                        {{ user.username }}
                       </h5>
                       <p class="mb-0 text-white text-sm">
-                        CEO / Co-Founder
+                        {{ profile.skills }}
                       </p>
                     </div>
                   </div>
@@ -424,14 +425,14 @@
                   </div>
                   <div class="card-body p-3">
                     <p class="text-sm">
-                      Hi, I’m Alec Thompson, Decisions: If you can’t decide, the answer is no. If two equally difficult paths, choose the one more painful in the short term (pain avoidance is creating an illusion of equality).
+                      {{ profile.bio }}
                     </p>
                     <hr class="horizontal gray-light my-4">
                     <ul class="list-group">
-                      <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; Alec M. Thompson</li>
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; (44) 123 1234 123</li>
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; alecthompson@mail.com</li>
-                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; USA</li>
+                      <li class="list-group-item border-0 ps-0 pt-0 text-sm"><strong class="text-dark">Full Name:</strong> &nbsp; {{ profile.full_name }}</li>
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Mobile:</strong> &nbsp; {{ profile.phone_number }}</li>
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Email:</strong> &nbsp; {{ profile.email }} </li>
+                      <li class="list-group-item border-0 ps-0 text-sm"><strong class="text-dark">Location:</strong> &nbsp; {{ profile.address }}</li>
                       <li class="list-group-item border-0 ps-0 pb-0">
                         <strong class="text-dark text-sm">Social:</strong> &nbsp;
                         <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="javascript:;">
@@ -652,23 +653,23 @@
                         document.write(new Date().getFullYear())
                       </script>,
                       made with <i class="fa fa-heart"></i> by
-                      <a href="#" class="font-weight-bold">Jobstraight</a>
+                      <a href="#" class="font-weight-bold" target="_blank">Jobstraight</a>
                       for a better web.
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <ul class="nav nav-footer justify-content-center justify-content-lg-end">
                       <li class="nav-item">
-                        <a href="{% url 'home' %}" class="nav-link text-muted">Home</a>
+                        <a href="{% url 'home' %}" class="nav-link text-muted" target="_blank">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a href="#" class="nav-link text-muted">About Us</a>
+                        <a href="{% url 'about' %}" class="nav-link text-muted" target="_blank">About Us</a>
                       </li>
                       <li class="nav-item">
-                        <a href="#" class="nav-link text-muted">Blog</a>
+                        <a href="#" class="nav-link text-muted" target="_blank">Blog</a>
                       </li>
                       <li class="nav-item">
-                        <a href="#" class="nav-link pe-0 text-muted">License</a>
+                        <a href="#" class="nav-link pe-0 text-muted" target="_blank">License</a>
                       </li>
                     </ul>
                   </div>
@@ -731,12 +732,12 @@
               <a class="btn bg-gradient-dark w-100" href="#">Create a free account</a>
               <a class="btn btn-outline-dark w-100" href="#">View our Socials</a>
               <div class="w-100 text-center">
-                <a class="github-button" href="#" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="#">Star</a>
+                <a class="github-button" href="#" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/soft-ui-dashboard on GitHub">Star</a>
                 <h6 class="mt-3">Thank you for using our services</h6>
-                <a href="#" class="btn btn-dark mb-0 me-2">
+                <a href="#" class="btn btn-dark mb-0 me-2" target="_blank">
                   <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
                 </a>
-                <a href="#" class="btn btn-dark mb-0 me-2">
+                <a href="#" class="btn btn-dark mb-0 me-2" target="_blank">
                   <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
                 </a>
               </div>

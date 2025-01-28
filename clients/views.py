@@ -129,14 +129,15 @@ def profile_view(request):
         return redirect('client_edit_profile')
 
     if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-#        return JsonResponse({'profile': {
-#           'username': profile.user.username,
-#            'bio': profile.bio,
-#           'phone_number': profile.phone_number,
-#           'skills': profile.skills,
-#           'profile_picture': profile.profile_picture.url if profile.profile_picture else None
-#       }})
-        return render(request, 'client_profile_view.html', {'profile': profile})
+        return JsonResponse({'profile': {
+            'username': profile.user.username,
+            'bio': profile.bio,
+            'phone_number': profile.phone_number,
+            'skills': profile.skills,
+            'profile_picture': profile.profile_picture.url if profile.profile_picture else None
+        }})
+
+    return render(request, 'client_profile_view.html', {'profile': profile})
 
 
 @login_required
