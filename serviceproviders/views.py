@@ -94,14 +94,10 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully.')
-            #if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-            #    return JsonResponse({'message': 'Profile updated successfully.'})
             return redirect('profile_view')
     else:
         form = ProfileEditForm(instance=profile)
 
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-        return JsonResponse({'form': form.errors})
     return render(request, 'edit_profile.html', {'form': form})
 
 # Profile view
