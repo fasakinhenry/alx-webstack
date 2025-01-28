@@ -113,6 +113,7 @@ def edit_profile(request):
 def employees(request):
     """Render the employees page."""
     profiles = ClientProfile.objects.all()
+    profile = Profile.objects.get(user=request.user)
     return render(request, 'client_employees.html', {'profiles': profiles})
 
 # Profile view
