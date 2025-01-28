@@ -143,7 +143,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  " href="{% url 'login' %}">
+                <a class="nav-link  " href="#">
                   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                     <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>document</title>
@@ -159,11 +159,11 @@
                       </g>
                     </svg>
                   </div>
-                  <span class="nav-link-text ms-1">login</span>
+                  <span class="nav-link-text ms-1">buy points</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link  " href="{% url 'register' %}">
+                <a class="nav-link" href="#">
                   <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                     <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                       <title>spaceship</title>
@@ -181,7 +181,7 @@
                       </g>
                     </svg>
                   </div>
-                  <span class="nav-link-text ms-1">Sign Up</span>
+                  <span class="nav-link-text ms-1">Advertize</span>
                 </a>
               </li>
             </ul>
@@ -209,10 +209,9 @@
             <div class="container-fluid py-1">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 ps-2 me-sm-6 me-5">
-                  <li class="breadcrumb-item text-sm"><a class="text-white opacity-5" href="javascript:;">Pages</a></li>
-                  <li class="breadcrumb-item text-sm text-white active" aria-current="page">Profile</li>
+                  <li class="breadcrumb-item text-sm text-white active" aria-current="page">This is your Serviceprovider profile</li>
                 </ol>
-                <h6 class="text-white font-weight-bolder ms-2">Profile</h6>
+                <h6 class="text-white font-weight-bolder ms-2">Welcome {{ user.username }}</h6>
               </nav>
               <div class="collapse navbar-collapse me-md-0 me-sm-4 mt-sm-0 mt-2" id="navbar">
                 <div class="ms-md-auto pe-md-3 d-flex align-items-center">
