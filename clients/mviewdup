@@ -42,12 +42,16 @@ def register(request):
             messages.success(request, f'Account created for {user.username}!')
             if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or \
                     request.GET.get('format') == 'json':
-                return JsonResponse({'message': f'Account created for {user.username}!'})
+                return JsonResponse({'message': \
+                        f'Account created for {user.username}!'})
             return redirect('client_login')
     else:
         form = UserRegistrationForm()
 
+    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+    #  return JsonResponse({'form': form.errors})
     return render(request, 'client_register.html', {'form': form})
+
 
 
 def login_view(request):
@@ -62,8 +66,7 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            if request.headers.get('X-Requested-With')\
-                    == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
                 return JsonResponse({'message': 'Login successful'})
             return redirect('home')
         else:
@@ -75,12 +78,15 @@ def login_view(request):
 def client_logout(request):
     """Logout the user and redirect to the home page."""
     logout(request)
+    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+    #    return JsonResponse({'message': 'Logout successful'})
     return redirect('home')
-
 
 @login_required
 def dashboard(request):
     """Render the dashboard page."""
+    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+    #    return JsonResponse({'message': 'Welcome to the dashboard'})
     return render(request, 'client_dashboard.html')
 
 
