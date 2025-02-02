@@ -10,7 +10,9 @@ from .forms import UserRegistrationForm, ProfileEditForm
 from rest_framework import generics
 from clients.serializers import ProfileSerializer
 from rest_framework.permissions import IsAuthenticated
-from .models import Profile
+from django.contrib.auth.decorators import login_required
+from .models import Message, Profile
+from django.contrib.auth.models import User
 
 
 def landpage(request):
@@ -42,7 +44,8 @@ def register(request):
             messages.success(request, f'Account created for {user.username}!')
             if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or \
                     request.GET.get('format') == 'json':
-                return JsonResponse({'message': f'Account created for {user.username}!'})
+                return JsonResponse(
+                        {'message': f'Account created for {user.username}!'})
             return redirect('client_login')
     else:
         form = UserRegistrationForm()
@@ -100,13 +103,12 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully.')
-            #if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-            #    return JsonResponse({'message': 'Profile updated successfully.'})
             return redirect('client_profile_view')
     else:
         form = ProfileEditForm(instance=profile)
 
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+    if request.headers.get('X-Requested-With') == \
+            'XMLHttpRequest' or request.GET.get('format') == 'json':
         return JsonResponse({'form': form.errors})
     return render(request, 'client_edit_profile.html', {'form': form})
 
@@ -130,17 +132,20 @@ def profile_view(request):
     except Profile.DoesNotExist:
         # If the profile doesn't exist, redirect to edit profile to create one
         messages.warning(request, 'Please complete your profile.')
-        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+        if request.headers.get('X-Requested-With') == \
+                'XMLHttpRequest' or request.GET.get('format') == 'json':
             return JsonResponse({'error': 'Please complete your profile.'})
         return redirect('client_edit_profile')
 
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+    if request.headers.get('X-Requested-With') == \
+            'XMLHttpRequest' or request.GET.get('format') == 'json':
         return JsonResponse({'profile': {
             'username': profile.user.username,
             'bio': profile.bio,
             'phone_number': profile.phone_number,
             'skills': profile.skills,
-            'profile_picture': profile.profile_picture.url if profile.profile_picture else None
+            'profile_picture': profile.profile_picture.url
+            if profile.profile_picture else None
         }})
 
     return render(request, 'client_profile_view.html', {'profile': profile})
@@ -153,7 +158,6 @@ def view_users(request):
     return render(request, 'client_view_users.html', {'profiles': profiles})
 
 
-
 """
 from django.core.paginator import Paginator
 from django.shortcuts import render
@@ -164,7 +168,7 @@ def view_users(request):
 
     # Paginate the profiles, showing 10 profiles per page
     paginator = Paginator(profiles, 10)
-    page_number = request.GET.get('page')  # Get the page number from the request
+    page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'view_users.html', {'page_obj': page_obj})
@@ -173,26 +177,21 @@ def view_users(request):
 
 def about(request):
     """Render the about page."""
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-#        return JsonResponse({'message': 'Welcome to the about page'})
     return render(request, 'client_about.html')
+
 
 # Jobs page view
 @login_required
 def jobs(request):
     """Render the jobs page."""
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-        # return JsonResponse({'message': 'Welcome to the jobs page'})
     return render(request, 'jobs.html')
+
 
 # Tables page view
 @login_required
 def tables(request):
     """Render the tables page."""
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-    #    return JsonResponse({'message': 'Welcome to the tables page'})
     return render(request, 'clients_tables.html')
-
 
 
 # Freelancer page view
@@ -214,12 +213,12 @@ def profiles_api(request):
             'bio': profile.bio,
             'phone_number': profile.phone_number,
             'skills': profile.skills,
-            'profile_picture': profile.profile_picture.url if profile.profile_picture else None
+            'profile_picture': profile.profile_picture.url
+            if profile.profile_picture else None
         }
         for profile in profiles
     ]
     return JsonResponse(profiles_data, safe=False)
-
 
 
 # API view for profiles
@@ -235,17 +234,10 @@ class ProfileDetailAPIView(generics.RetrieveAPIView):
     permission_classes = [IsAuthenticated]
 
 
-#messages/chat
-
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from .models import Message, Profile
-from django.contrib.auth.models import User
-
-
 @login_required
 def chat_view(request, recipient_id):
-    """View to display chat messages between the logged-in user and another user."""
+    """View to display chat messages between
+    the logged-in user and another user."""
     recipient = User.objects.get(id=recipient_id)
     messages = Message.objects.filter(
         (models.Q(sender=request.user) & models.Q(recipient=recipient)) |
@@ -255,10 +247,15 @@ def chat_view(request, recipient_id):
     if request.method == "POST":
         content = request.POST.get('message')
         if content:
-            Message.objects.create(sender=request.user, recipient=recipient, content=content)
+            Message.objects.create(sender=request.user,
+                                   recipient=recipient, content=content)
             return redirect('chat_view', recipient_id=recipient.id)
 
-    return render(request, 'chat.html', {'messages': messages, 'recipient': recipient})
+    return render(request, 'chat.html', {
+
+        'messages': messages,
+        'recipient': recipient,
+    },)
 
 
 @login_required
@@ -266,5 +263,3 @@ def users_list(request):
     """View to list all users to start a chat."""
     users = User.objects.exclude(id=request.user.id)
     return render(request, 'users_list.html', {'users': users})
-
-
