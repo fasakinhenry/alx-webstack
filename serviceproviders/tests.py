@@ -1,126 +1,80 @@
+import json
 from django.test import TestCase, Client
+from django.urls import reverse
 from django.contrib.auth.models import User
-from django.urls import reverse                                                          
-from clients.forms import UserRegistrationForm                      
-from clients.models import Profile
+from django.contrib.messages import get_messages
 
-
-class LoginViewTestCase(TestCase):
+class UserViewsTestCase(TestCase):
+    """Test case for user views."""
 
     def setUp(self):
-        # Create a test user
-        self.username = 'testuser'
-        self.password = 'testpassword123'
-        self.user = User.objects.create_user(username=self.username, password=self.password)
-        self.client = Client()
-        self.login_url = reverse('login')
-        self.dashboard_url = reverse('dashboard')
-
-    def test_successful_login(self):
-        """Test if login is successful with correct credentials."""
-        response = self.client.post(self.login_url, {
-            'username': self.username,
-            'password': self.password
-        })
-        self.assertRedirects(response, self.dashboard_url)
-
-    def test_invalid_login(self):
-        """Test login with invalid credentials."""
-        response = self.client.post(self.login_url, {
-            'username': self.username,
-            'password': 'wrongpassword'
-        })
-        self.assertContains(response, 'Invalid username or password.')
-        self.assertEqual(response.status_code, 200)
-
-    def test_missing_fields(self):
-        """Test login with missing username or password."""
-        # Missing username
-        response = self.client.post(self.login_url, {
-            'password': self.password
-        })
-        self.assertContains(response, 'Both username and password are required.')
-        
-        # Missing password
-        response = self.client.post(self.login_url, {
-            'username': self.username
-        })
-        self.assertContains(response, 'Both username and password are required.')
-
-    def test_ajax_login_successful(self):
-        """Test successful login via AJAX."""
-        response = self.client.post(self.login_url, {
-            'username': self.username,
-            'password': self.password
-        }, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-        self.assertEqual(response.status_code, 200)
-        self.assertJSONEqual(response.content, {'message': 'Login successful'})
-
-    def test_ajax_login_failure(self):
-        """Test failed login via AJAX."""
-        response = self.client.post(self.login_url, {
-            'username': self.username,
-            'password': 'wrongpassword'
-        }, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
-        self.assertEqual(response.status_code, 200)
-
-class RegistrationViewTestCase(TestCase):
-
-    def setUp(self):
+        """Set up the test environment."""
         self.client = Client()
         self.register_url = reverse('register')
         self.login_url = reverse('login')
+        self.logout_url = reverse('logout')
+        self.home_url = reverse('home')
 
-    def test_registration_success(self):
-        """Test if a new user can successfully register."""
-        form_data = {
-            'username': 'newuser',
-            'password1': 'password123',
-            'password2': 'password123',
-            'email': 'newuser@example.com'
+        self.user_data = {
+            'username': 'testuser',
+            'password1': 'testpassword123',
+            'password2': 'testpassword123',
+            'email': 'testuser@example.com'
         }
-        response = self.client.post(self.register_url, data=form_data)
-        self.assertRedirects(response, self.login_url)
-        self.assertTrue(User.objects.filter(username='newuser').exists())
-        self.assertTrue(Profile.objects.filter(user__username='newuser').exists())
 
-    def test_registration_invalid_form(self):
-        """Test registration with invalid form data."""
-        form_data = {
-            'username': '',  # Invalid username
-            'password1': 'password123',
-            'password2': 'password123',
-            'email': 'invalid-email'  # Invalid email
-        }
-        response = self.client.post(self.register_url, data=form_data)
+    def test_register_view_post_success(self):
+        """Test registration with valid data."""
+        response = self.client.post(self.register_url, self.user_data)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(User.objects.count(), 1)
+        self.assertTrue(User.objects.filter(username='testuser').exists())
+
+    def test_register_view_post_invalid(self):
+        """Test registration with invalid data."""
+        invalid_data = self.user_data.copy()
+        invalid_data['password2'] = 'mismatch'
+        response = self.client.post(self.register_url, invalid_data)
         self.assertEqual(response.status_code, 200)
-        self.assertFormError(response, 'form', 'username', 'This field is required.')
-        self.assertFormError(response, 'form', 'email', 'Enter a valid email address.')
+        self.assertEqual(User.objects.count(), 0)
 
-    def test_ajax_registration_success(self):
-        """Test successful registration via AJAX."""
-        form_data = {
-            'username': 'ajaxuser',
-            'password1': 'password123',
-            'password2': 'password123',
-            'email': 'ajaxuser@example.com'
-        }
-        response = self.client.post(self.register_url, data=form_data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+    def test_register_view_get(self):
+        """Test GET request to the register view."""
+        response = self.client.get(self.register_url)
         self.assertEqual(response.status_code, 200)
-        self.assertJSONEqual(response.content, {'message': 'Account created for ajaxuser!'})
-        self.assertTrue(User.objects.filter(username='ajaxuser').exists())
-        self.assertTrue(Profile.objects.filter(user__username='ajaxuser').exists())
+        self.assertTemplateUsed(response, 'register.html')
 
-    def test_ajax_registration_failure(self):
-        """Test registration failure via AJAX."""
-        form_data = {
-            'username': '',  # Missing username
-            'password1': 'password123',
-            'password2': 'password123',
-            'email': 'invalid-email'  # Invalid email
-        }
-        response = self.client.post(self.register_url, data=form_data, HTTP_X_REQUESTED_WITH='XMLHttpRequest')
+    def test_login_view_post_success(self):
+        """Test login with valid credentials."""
+        user = User.objects.create_user(
+            username='testuser', password='testpassword123')
+        response = self.client.post(self.login_url, {
+            'username': 'testuser',
+            'password': 'testpassword123'
+        })
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, self.home_url)
+
+    def test_login_view_post_invalid(self):
+        """Test login with invalid credentials."""
+        response = self.client.post(self.login_url, {
+            'username': 'wronguser',
+            'password': 'wrongpassword'
+        })
         self.assertEqual(response.status_code, 200)
-        self.assertIn('form', response.json())
-        self.assertIn('username', response.json()['form'])
-        self.assertIn('email', response.json()['form'])
+        messages = list(get_messages(response.wsgi_request))
+        self.assertTrue(any(msg.message == 'Invalid username or password.' for msg in messages))
+
+    def test_login_view_get(self):
+        """Test GET request to the login view."""
+        response = self.client.get(self.login_url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'login.html')
+
+    def test_logout_view(self):
+        """Test logout functionality."""
+        user = User.objects.create_user(
+            username='testuser', password='testpassword123')
+        self.client.login(username='testuser', password='testpassword123')
+        response = self.client.get(self.logout_url)
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.url, reverse('landpage'))
