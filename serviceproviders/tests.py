@@ -4,6 +4,7 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from django.contrib.messages import get_messages
 
+
 class UserViewsTestCase(TestCase):
     """Test case for user views."""
 
@@ -62,7 +63,10 @@ class UserViewsTestCase(TestCase):
         })
         self.assertEqual(response.status_code, 200)
         messages = list(get_messages(response.wsgi_request))
-        self.assertTrue(any(msg.message == 'Invalid username or password.' for msg in messages))
+        self.assertTrue(
+                any(msg.message == 'Invalid username or password.'
+                    for msg in messages)
+                )
 
     def test_login_view_get(self):
         """Test GET request to the login view."""
