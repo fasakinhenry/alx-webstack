@@ -11,13 +11,17 @@ from .serializers import ProfileSerializer
 from rest_framework.permissions import IsAuthenticated
 from .models import Profile
 
+
 # Home page view
 @login_required
 def home(request):
-    """Render the home page."""
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-    #    return JsonResponse({'message': 'Welcome to the home page'})
+    """Render the home page.
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or
+    request.GET.get('format') == 'json':
+    return JsonResponse({'message': 'Welcome to the home page'})
+    """
     return render(request, 'home.html')
+
 
 # User registration view
 def register(request):
@@ -37,10 +41,12 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegistrationForm()
-
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-    #  return JsonResponse({'form': form.errors})
+    """bif request.headers.get('X-Requested-With') == 'XMLHttpRequest' or
+    request.GET.get('format') == 'json':
+    return JsonResponse({'form': form.errors})
+    """
     return render(request, 'register.html', {'form': form})
+
 
 # User login view
 def login_view(request):
@@ -63,21 +69,28 @@ def login_view(request):
 
     return render(request, 'login.html')
 
+
 # User logout view
 def logout(request):
-    """Logout the user and redirect to the home page."""
+    """Logout the user and redirect to the home page.
     auth_logout(request)
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-    #    return JsonResponse({'message': 'Logout successful'})
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or
+    request.GET.get('format') == 'json':
+    return JsonResponse({'message': 'Logout successful'})
+    """
     return redirect('landpage')
+
 
 # Dashboard view
 @login_required
 def dashboard(request):
-    """Render the dashboard page."""
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-    #    return JsonResponse({'message': 'Welcome to the dashboard'})
+    """Render the dashboard page.
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or
+    request.GET.get('format') == 'json':
+    return JsonResponse({'message': 'Welcome to the dashboard'})
+    """
     return render(request, 'dashboard.html')
+
 
 # Edit profile view
 @login_required
@@ -100,6 +113,7 @@ def edit_profile(request):
 
     return render(request, 'edit_profile.html', {'form': form})
 
+
 # Profile view
 @login_required
 def profile_view(request):
@@ -107,7 +121,9 @@ def profile_view(request):
     try:
         profile = Profile.objects.get(user=request.user)
     except Profile.DoesNotExist:
-        # If the profile doesn't exist, redirect to edit profile to create one
+        """ If the profile doesn't exist, redirect to
+        edit profile to create one
+        """
         messages.warning(request, 'Please complete your profile.')
         if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
             return JsonResponse({'error': 'Please complete your profile.'})
@@ -131,28 +147,38 @@ def view_users(request):
     profiles = Profile.objects.select_related('user').all()
     return render(request, 'view_users.html', {'profiles': profiles})
 
+
 # About page view
 def about(request):
-    """Render the about page."""
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-#        return JsonResponse({'message': 'Welcome to the about page'})
+    """Render the about page.
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or
+    request.GET.get('format') == 'json':
+    return JsonResponse({'message': 'Welcome to the about page'})
+    """
     return render(request, 'about.html')
+
 
 # Jobs page view
 @login_required
 def jobs(request):
-    """Render the jobs page."""
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-        # return JsonResponse({'message': 'Welcome to the jobs page'})
+    """Render the jobs page.
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or
+    request.GET.get('format') == 'json':
+        return JsonResponse({'message': 'Welcome to the jobs page'})
+    """
     return render(request, 'jobs.html')
+
 
 # Tables page view
 @login_required
 def tables(request):
-    """Render the tables page."""
-    # if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-    #    return JsonResponse({'message': 'Welcome to the tables page'})
+    """Render the tables page.
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or
+    request.GET.get('format') == 'json':
+    return JsonResponse({'message': 'Welcome to the tables page'})
+    """
     return render(request, 'tables.html')
+
 
 # Freelancer page view
 @login_required
@@ -166,6 +192,7 @@ def freelancer(request):
 # def employees(request):
 #    """Render the employees page."""
 #    return render(request, 'employees.html')
+
 
 # All users page view
 @login_required
@@ -192,14 +219,15 @@ def profiles_api(request):
     ]
     return JsonResponse(profiles_data, safe=False)
 
+
 # API view for profiles
 class ProfileListAPIView(generics.ListAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]
 
+
 class ProfileDetailAPIView(generics.RetrieveAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
     permission_classes = [IsAuthenticated]
-
