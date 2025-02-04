@@ -36,8 +36,13 @@ def register(request):
             profile.save()
 
             messages.success(request, f'Account created for {user.username}!')
-            if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-                return JsonResponse({'message': f'Account created for {user.username}!'})
+            if (
+                request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+                or request.GET.get('format') == 'json'
+            ):
+                return JsonResponse(
+                    {'message': f'Account created for {user.username}!'}
+                )
             return redirect('login')
     else:
         form = UserRegistrationForm()
@@ -61,7 +66,10 @@ def login_view(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+            if (
+                request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+                or request.GET.get('format') == 'json'
+            ):
                 return JsonResponse({'message': 'Login successful'})
             return redirect('home')
         else:
@@ -103,15 +111,17 @@ def edit_profile(request):
         profile = Profile.objects.create(user=request.user)
 
     if request.method == 'POST':
-        form = ProfileEditForm(request.POST, request.FILES, instance=profile)
+        form = ProfileEditForm(
+                request.POST, request.FILES, instance=profile
+        )
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile updated successfully.')
             return redirect('profile_view')
-    else:
-        form = ProfileEditForm(instance=profile)
 
-    return render(request, 'edit_profile.html', {'form': form})
+        else:
+            form = ProfileEditForm(instance=profile)
+            return render(request, 'edit_profile.html', {'form': form})
 
 
 # Profile view
@@ -125,19 +135,26 @@ def profile_view(request):
         edit profile to create one
         """
         messages.warning(request, 'Please complete your profile.')
-        if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
+        if (
+            request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+            or request.GET.get('format') == 'json'
+        ):
             return JsonResponse({'error': 'Please complete your profile.'})
         return redirect('edit_profile')
 
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or request.GET.get('format') == 'json':
-       return JsonResponse({'profile': {
+    if (
+        request.headers.get('X-Requested-With') == 'XMLHttpRequest'
+        or request.GET.get('format') == 'json'
+    ):
+        return JsonResponse({'profile': {
           'username': profile.user.username,
           'bio': profile.bio,
           'phone_number': profile.phone_number,
           'skills': profile.skills,
-          'profile_picture': profile.profile_picture.url if profile.profile_picture else None
+          'profile_picture': profile.profile_picture.url
+          if profile.profile_picture else None
          }
-       })
+        })
     return render(request, 'profile_view.html', {'profile': profile})
 
 
@@ -213,7 +230,8 @@ def profiles_api(request):
             'bio': profile.bio,
             'phone_number': profile.phone_number,
             'skills': profile.skills,
-            'profile_picture': profile.profile_picture.url if profile.profile_picture else None
+            'profile_picture': profile.profile_picture.url
+            if profile.profile_picture else None
         }
         for profile in profiles
     ]
