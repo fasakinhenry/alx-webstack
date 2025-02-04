@@ -14,8 +14,8 @@ urlpatterns = [
     path('about/', views.about, name='about'),
     path('jobs/', views.jobs, name='jobs'),
     path('freelancer/', views.freelancer, name='freelancer'),
-#    path('employees/', views.employees, name='employees'),
+    # path('employees/', views.employees, name='employees'),
     path('allusers/', views.allusers, name='allusers'),
     path('tables/', views.tables, name='tables'),
-    path('api/profiles/', views.profiles_api, name='profiles_api'),  # Use profiles_api view
+    path('api/profiles/', views.profiles_api, name='profiles_api'),
 ]
